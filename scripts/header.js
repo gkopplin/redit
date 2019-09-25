@@ -5,8 +5,8 @@ export default () => {
 
     // Login and Signup buttons
     const buttons = document.createElement('div');
-    const login = document.createElement('button');
-    const signup = document.createElement('button');
+    const login = document.createElement('buttons');
+    const signup = document.createElement('buttons');
     login.className = 'login';
     signup.className = 'signup';
     login.innerHTML = 'Log in';
