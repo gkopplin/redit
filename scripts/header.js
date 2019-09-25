@@ -20,11 +20,12 @@ export default () => {
     const modal = createModal();
     header.append(modal);
 
-    function openModal() {
+    function openModal(buttonClicked) {
         modal.style.visibility = 'initial';
+        modal.firstChild.firstChild.children[3].innerText = buttonClicked;
     }
-    login.onclick = openModal;
-    signup.onclick = openModal;
+    login.onclick = () => openModal('Log in');
+    signup.onclick = () => openModal('Sign up');
 
     return header;
   };
