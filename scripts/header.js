@@ -23,9 +23,16 @@ export default () => {
     function openModal(buttonClicked) {
         modal.style.visibility = 'initial';
         modal.firstChild.firstChild.children[3].innerText = buttonClicked;
+        if(buttonClicked === 'Log in') {
+          modal.firstChild.firstChild.children[0].style.display = 'none';
+        } else {
+          modal.firstChild.firstChild.children[0].style.display = 'inline';
+        }
     }
     login.onclick = () => openModal('Log in');
     signup.onclick = () => openModal('Sign up');
+
+
 
     return header;
   };
