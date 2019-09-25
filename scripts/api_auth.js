@@ -18,14 +18,13 @@ export const signup = (username, email, password) => {
     .catch(err => console.log(err));
 };
 
-export const login = (username, email, password) => {
+export const login = (email, password) => {
     fetch('http://thesi.generalassemb.ly:8080/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            username,
             email,
             password
         }),

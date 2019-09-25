@@ -34,7 +34,11 @@ export default () => {
     //in progress/clean up later!
     form.onsubmit = e => {
       e.preventDefault();
-      signup(email.value, username.value, password.value);
+      if(auth.firstChild.firstChild.children[3].innerText === 'Log in') {
+        login(email.value, password.value);
+      } else {
+        signup(username.value, email.value, password.value);
+      }
     };
 
     submit.setAttribute('type', 'submit');
