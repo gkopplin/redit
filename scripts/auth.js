@@ -16,6 +16,9 @@ export default () => {
     username.setAttribute('placeholder', 'Enter a username');
     password.setAttribute('placeholder', 'Enter a password');
     close.innerHTML = '&#10060';
+    close.onclick = () => {
+        auth.style.visibility = "hidden";
+    };
 
     form.append(username);
     form.append(password);

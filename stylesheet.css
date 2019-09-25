@@ -19,9 +19,14 @@ body {
 buttons {
   background-color: white;
 }
+
+.login, .signup {
+    cursor: pointer;
+}
+
 .auth {
   display: inline-flex;
-  /* display: none; */
+  visibility: hidden;
   position: fixed;
   z-index: 1;
   left: 0;
@@ -37,4 +42,5 @@ buttons {
 }
 .close {
   float: right;
+  cursor: pointer;
 }

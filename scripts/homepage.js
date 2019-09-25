@@ -1,5 +1,4 @@
 import createHeader from './header.js';
-import createModal from './auth.js';
 
 export const createHomepage = () => {
   let homepage = document.createElement('div');
@@ -7,5 +6,4 @@ export const createHomepage = () => {
   document.body.append(homepage);
   // homepage.innerText = "";
   homepage.append(createHeader());
-  homepage.append(createModal());
 };

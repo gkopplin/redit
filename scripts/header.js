@@ -1,3 +1,5 @@
+import createModal from './auth.js';
+
 export default () => {
     let header = document.createElement('div');
     header.className = 'header';
@@ -14,6 +16,15 @@ export default () => {
     buttons.append(login);
     buttons.append(signup);
     header.append(buttons);
+
+    const modal = createModal();
+    header.append(modal);
+
+    function openModal() {
+        modal.style.visibility = 'initial';
+    }
+    login.onclick = openModal;
+    signup.onclick = openModal;
 
     return header;
   };
