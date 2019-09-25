@@ -1,0 +1,17 @@
+body {
+    margin: 0;
+}
+
+.header {
+    background: dimgray;
+    height: 7%;
+    width: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+}
+
+.homepage {
+    background: black;
+    height: 100em;
+}
