@@ -1,5 +1,4 @@
-export const signup = (username, password) => e => {
-    e.preventDefault();
+export const signup = (username, email, password) => {
     fetch('http://thesi.generalassemb.ly:8080/signup', {
         method: 'POST',
         headers: {
@@ -7,6 +6,7 @@ export const signup = (username, password) => e => {
         },
         body: JSON.stringify({
             username,
+            email,
             password
         }),
     })
