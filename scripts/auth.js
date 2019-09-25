@@ -54,5 +54,5 @@ export default () => {
     auth.append(content);
 
 
-    return auth;
+    return auth; //comment
 };
