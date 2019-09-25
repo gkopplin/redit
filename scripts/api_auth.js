@@ -1,11 +1,11 @@
-export const signup = (username, password) => e => {
-    e.preventDefault();
+export const signup = (email, username, password) => {
     fetch('http://thesi.generalassemb.ly:8080/signup', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
+            email,
             username,
             password
         }),
