@@ -1,3 +1,6 @@
 export default () => {
-    console.log('header');
-};
+    let header = document.createElement('div');
+    header.className = 'header';
+    header.innerText = 'header here';
+    return header;
+  };

@@ -1,3 +1,4 @@
-import func from './header.js';
+// import func from './header.js';
+import {createHomepage} from './homepage.js';
 
-func();
+createHomepage();
