@@ -38,7 +38,6 @@ export default () => {
         } else {
           signup(username.value, email.value, password.value);
         }
-      auth.style.visibility = "hidden";   // add redirect for invalid email/user
 
       username.value = "";
       email.value = "";
