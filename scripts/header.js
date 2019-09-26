@@ -31,6 +31,7 @@ export default () => {
     signup.innerHTML = 'Sign up';
     logout.innerHTML = 'Logout';
     createPostButton.innerHTML = 'Create a post';
+    userId.innerHTML = localStorage.getItem('username');
 
     // Add event listeners
     createPostButton.onclick = () => {

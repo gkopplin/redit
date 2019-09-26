@@ -17,7 +17,7 @@ export const signup = (username, email, password) => {
         let allLoggedIn = document.querySelectorAll('.logged-in');
         console.log(response);
         localStorage.setItem('auth_key', response.token);
-        document.querySelector('.userid').innerHTML = response.username;
+        localStorage.setItem('username', response.username);
         document.body.children[1].firstChild.children[2].style.visibility = 'hidden'; //hide modal
 
         for (let item of allLoggedOut) {
@@ -48,7 +48,7 @@ export const login = (email, password) => {
             let allLoggedIn = document.querySelectorAll('.logged-in');
             document.body.children[1].firstChild.children[2].style.visibility = 'hidden';
             localStorage.setItem('auth_key', response.token);
-            document.querySelector('.userid').innerHTML = response.username;
+            localStorage.setItem('username', response.username);
             
             for (let item of allLoggedOut) {
               item.style.display = "none";
