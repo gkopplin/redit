@@ -38,10 +38,7 @@ export const login = (email, password) => {
             document.body.children[1].firstChild.children[0].style.display = 'none'; //toggles sign up
             document.body.children[1].children[0].children[1].style.display = 'inline-flex'; //toggles logged/userID
             localStorage.setItem('auth_key', response.token);
-<<<<<<< HEAD
             document.body.children[1].firstChild.children[2].style.visibility = 'hidden';
-=======
->>>>>>> 6e3cc62e6bc19499357fe2d85f9d67564b28a9ee
 
         })
         .catch(err => console.log(err));
