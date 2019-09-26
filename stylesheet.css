@@ -1,6 +1,4 @@
-/* * {
-  border: 1px solid red;
-} */
+
 
 body {
     margin: 0;
@@ -8,7 +6,8 @@ body {
 
 .header {
     background: dimgray;
-    height: 7%;
+    top: 0%;
+    height: 11%;
     width: 100%;
     position: absolute;
     display: flex;
@@ -16,8 +15,11 @@ body {
 }
 
 .homepage {
+    margin: 4.6% 0 0 0;
     background: black;
     height: 100em;
+    display: flex;
+    justify-content: center;
 }
 
 buttons {
@@ -56,4 +58,10 @@ buttons {
 .description {
     width: 80%;
     height: 50%;
+}
+.post {
+  background: dimgrey;
+  width: 70%;
+  height: 40%;
+  margin: 10px;
 }
