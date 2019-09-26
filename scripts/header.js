@@ -7,16 +7,31 @@ export default () => {
 
     // Login and Signup buttons
     const buttons = document.createElement('div');
-    const login = document.createElement('buttons');
-    const signup = document.createElement('buttons');
+    const logged = document.createElement('div');
+    const login = document.createElement('button');
+    const signup = document.createElement('button');
+    const userId = document.createElement('div');         //added userID
+    const logout = document.createElement('button');    //added logout button
+    //classnames
     login.className = 'login';
     signup.className = 'signup';
+    logout.className = 'logout';
+    userId.className = 'userid';
+    buttons.className = 'buttons';  
+    logged.className = 'logged';
+    //assign text to elements
     login.innerHTML = 'Log in';
     signup.innerHTML = 'Sign up';
+    logout.innerHTML = 'Logout';
+    userId.innerHTML = 'Christopher Cook';  //just placeholder will pull from logged user!
+
+    //append elements to DOM
     buttons.append(login);
     buttons.append(signup);
-    buttons.className = 'buttons';  //need class to select div
+    logged.append(userId);
+    logged.append(logout);
     header.append(buttons);
+    header.append(logged);
 
     const modal = createModal();
     header.append(modal);

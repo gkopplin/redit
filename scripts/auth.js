@@ -27,7 +27,7 @@ export default () => {
     password.setAttribute('placeholder', 'Enter a password');
     close.innerHTML = '&#10060';
     close.onclick = () => {         //make function to call within onsubmit
-        auth.style.visibility = "hidden";     //removed console.log
+        auth.style.visibility = "hidden";
     };
 
     //in progress/clean up later!
@@ -38,7 +38,7 @@ export default () => {
         } else {
           signup(username.value, email.value, password.value);
         }
-      auth.style.visibility = "hidden";   //taken from onclick above... add redirect for invalid email/user
+      auth.style.visibility = "hidden";   // add redirect for invalid email/user
     };
 
     submit.setAttribute('type', 'submit');
