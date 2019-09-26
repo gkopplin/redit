@@ -13,7 +13,7 @@ export default (title, description, postId) => {
     post.className = 'post';
     postTitle.className = 'title';
     body.className = 'body';
-    delButton.className = 'delete';
+    delButton.classList.add('delete', 'logged-in');
     addComment.classList.add('add-comment', 'logged-in');
 
   //elements
@@ -21,6 +21,8 @@ export default (title, description, postId) => {
     body.innerHTML = description;
     delButton.innerHTML = 'Delete';
     addComment.innerHTML = 'Add comment';
+    addComment.style.display = 'none';
+    delButton.style.display = 'none';
 
     delButton.onclick = () => {
       deletePost(postId);
@@ -33,7 +35,7 @@ export default (title, description, postId) => {
       for (let postItem of allPosts) {
         postItem.style.display = 'none';
       }
-      
+
       post.style.display = 'inline';
     };
 

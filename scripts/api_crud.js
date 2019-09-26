@@ -36,3 +36,25 @@ export const deletePost = (postId) => {
       })
       .catch(err => console.log(err));
 };
+
+export const fetchPosts = () => {
+  fetch('http://thesi.generalassemb.ly:8080/post/list', {
+      method: 'GET',
+      headers: {
+          'Content-Type': 'application/json'
+      }
+  })
+      .then(response => response.json())
+      .then(response => {
+        // for(let postItems in response) {
+        for (let i = 0; i < 10; i++) {
+          // const post = createPostItem(postItems.title, postItems.description, postItems.id);  //add username to posts
+          const post = createPostItem(response[i].title, response[i].description, response[i].id);  //add username to posts
+
+          document.querySelector('.homepage').append(post);
+          console.log(response);
+      }
+      })
+      .catch(err => console.log(err));
+
+};
