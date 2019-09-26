@@ -26,19 +26,19 @@ export default () => {
     username.setAttribute('placeholder', 'Enter a username');
     password.setAttribute('placeholder', 'Enter a password');
     close.innerHTML = '&#10060';
-    close.onclick = () => {
-        auth.style.visibility = "hidden";
-        console.log(username.value);
+    close.onclick = () => {         //make function to call within onsubmit
+        auth.style.visibility = "hidden";     //removed console.log
     };
 
     //in progress/clean up later!
     form.onsubmit = e => {
       e.preventDefault();
-      if(auth.firstChild.firstChild.children[3].innerText === 'Log in') {
-        login(email.value, password.value);
-      } else {
-        signup(username.value, email.value, password.value);
-      }
+        if(auth.firstChild.firstChild.children[3].innerText === 'Log in') {
+          login(email.value, password.value);
+        } else {
+          signup(username.value, email.value, password.value);
+        }
+      auth.style.visibility = "hidden";   //taken from onclick above... add redirect for invalid email/user
     };
 
     submit.setAttribute('type', 'submit');
@@ -54,5 +54,5 @@ export default () => {
     auth.append(content);
 
 
-    return auth; //comment
+    return auth;
 };

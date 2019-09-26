@@ -15,6 +15,7 @@ export default () => {
     signup.innerHTML = 'Sign up';
     buttons.append(login);
     buttons.append(signup);
+    buttons.className = 'buttons';  //need class to select div
     header.append(buttons);
 
     const modal = createModal();
