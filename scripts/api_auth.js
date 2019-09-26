@@ -13,11 +13,18 @@ export const signup = (username, email, password) => {
     })
     .then(response => response.json())
     .then(response => {
+        let allLoggedOut = document.querySelectorAll('.logged-out');
+        let allLoggedIn = document.querySelectorAll('.logged-in');
         console.log(response);
         localStorage.setItem('auth_key', response.token);
-        document.body.children[1].firstChild.children[2].style.visibility = 'hidden';
-        document.body.children[1].firstChild.children[0].style.display = 'none'; //toggles sign up
-        document.body.children[1].children[0].children[1].style.display = 'inline-flex';
+        document.body.children[1].firstChild.children[2].style.visibility = 'hidden'; //hide modal
+
+        for (let item of allLoggedOut) {
+          item.style.display = "none";
+        }
+        for (let item of allLoggedIn) {
+          item.style.display = 'inline';
+        }
     })
     .catch(err => console.log(err));
 };
@@ -35,11 +42,18 @@ export const login = (email, password) => {
     })
         .then(response => response.json())
         .then(response => {
-            // console.log(response);
-            document.body.children[1].firstChild.children[0].style.display = 'none'; //toggles sign up
-            document.body.children[1].children[0].children[1].style.display = 'inline-flex'; //toggles logged/userID
+            //refactor code later
+            let allLoggedOut = document.querySelectorAll('.logged-out');
+            let allLoggedIn = document.querySelectorAll('.logged-in');
             document.body.children[1].firstChild.children[2].style.visibility = 'hidden';
             localStorage.setItem('auth_key', response.token);
+            
+            for (let item of allLoggedOut) {
+              item.style.display = "none";
+            }
+            for (let item of allLoggedIn) {
+              item.style.display = 'inline';
+            }
 
         })
         .catch(err => console.log(err));

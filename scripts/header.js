@@ -13,12 +13,12 @@ export default () => {
     const userId = document.createElement('div');         //added userID
     const logout = document.createElement('button');    //added logout button
     //classnames
-    login.className = 'login';
-    signup.className = 'signup';
-    logout.className = 'logout';
-    userId.className = 'userid';
-    buttons.className = 'buttons';
-    logged.className = 'logged';
+    login.classList.add('login','logged-out');
+    signup.classList.add('signup','logged-out');
+    logout.classList.add('logout', 'logged-in');
+    userId.classList.add('userid', 'logged-in');
+    buttons.classList.add('buttons','logged-out');
+    logged.classList.add('logged', 'logged-in');
     //assign text to elements
     login.innerHTML = 'Log in';
     signup.innerHTML = 'Sign up';
@@ -50,8 +50,17 @@ export default () => {
 
     const logOut = () => {
       localStorage.removeItem('auth_key');
-      buttons.style.display = 'inline';
-      logged.style.display = 'none';
+      
+      let allLoggedOut = document.querySelectorAll('.logged-out');
+      let allLoggedIn = document.querySelectorAll('.logged-in');
+
+      for (let item of allLoggedOut) {
+        item.style.display = "inline";
+      }
+      for (let item of allLoggedIn) {
+        item.style.display = 'none';
+      }
+
     }
     logout.onclick = logOut;
 
