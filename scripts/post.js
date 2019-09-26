@@ -38,8 +38,10 @@ export default (title, description, postId) => {
 
       post.style.display = 'inline';
 
-      fetchComments(post, postId);
-      post.removeEventListener('click', viewPost);
+      const newElement = post.cloneNode(true);
+      post.parentNode.replaceChild(newElement, post);
+
+      fetchComments(newElement, postId);
     };
 
     post.onclick = viewPost;
