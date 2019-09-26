@@ -1,17 +1,22 @@
-import createModal from './auth.js';
+import createAuthModal from './auth.js';
+import createPost from './create_post';
 
 export default () => {
     let header = document.createElement('div');
     header.className = 'header';
     header.innerText = 'header here';
 
-    // Login and Signup buttons
+    // Create elements
     const buttons = document.createElement('div');
     const logged = document.createElement('div');
     const login = document.createElement('button');
     const signup = document.createElement('button');
     const userId = document.createElement('div');         //added userID
     const logout = document.createElement('button');    //added logout button
+    const createPostButton = document.createElement('button');
+    const createPostModal = createPost();
+    const authModal = createAuthModal();
+
     //classnames
     login.classList.add('login','logged-out');
     signup.classList.add('signup','logged-out');
@@ -19,30 +24,37 @@ export default () => {
     userId.classList.add('userid', 'logged-in');
     buttons.classList.add('buttons','logged-out');
     logged.classList.add('logged', 'logged-in');
+    createPostButton.classList.add('create-button', 'logged-in');
+
     //assign text to elements
     login.innerHTML = 'Log in';
     signup.innerHTML = 'Sign up';
     logout.innerHTML = 'Logout';
-    userId.innerHTML = 'Christopher Cook';  //just placeholder will pull from logged user!
+    createPostButton.innerHTML = 'Create a post';
+
+    // Add event listeners
+    createPostButton.onclick = () => {
+        createPostModal.style.visibility = 'initial';
+    };
 
     //append elements to DOM
     buttons.append(login);
     buttons.append(signup);
     logged.append(userId);
     logged.append(logout);
+    logged.append(createPostButton);
     header.append(buttons);
     header.append(logged);
-
-    const modal = createModal();
-    header.append(modal);
+    header.append(authModal);
+    header.append(createPostModal);
 
     function openModal(buttonClicked) {
-        modal.style.visibility = 'initial';
-        modal.firstChild.firstChild.children[3].innerText = buttonClicked;
+        authModal.style.visibility = 'initial';
+        authModal.firstChild.firstChild.children[3].innerText = buttonClicked;
         if(buttonClicked === 'Log in') {
-          modal.firstChild.firstChild.children[0].style.display = 'none';
+          authModal.firstChild.firstChild.children[0].style.display = 'none';
         } else {
-          modal.firstChild.firstChild.children[0].style.display = 'inline';
+          authModal.firstChild.firstChild.children[0].style.display = 'inline';
         }
     }
     login.onclick = () => openModal('Log in');

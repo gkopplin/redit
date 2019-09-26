@@ -22,15 +22,14 @@ body {
 
 buttons {
   background-color: white;
-  padding: 1px;1px;
-  border-spacing:
+  padding: 1px;
 }
 
 .login, .signup, .logout{
     cursor: pointer;
 }
 
-.auth {
+.modal {
   display: inline-flex;
   visibility: hidden;
   position: fixed;
@@ -52,4 +51,9 @@ buttons {
 }
 .logged {
   display: none;
+}
+
+.description {
+    width: 80%;
+    height: 50%;
 }
