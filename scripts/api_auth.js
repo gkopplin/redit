@@ -37,7 +37,6 @@ export const login = (email, password) => {
             document.body.children[1].children[0].children[1].style.display = 'inline-flex'; //toggles logged/userID
             localStorage.setItem('auth_key', response.token);
 
-
         })
         .catch(err => console.log(err));
 };
