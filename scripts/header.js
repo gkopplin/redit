@@ -17,7 +17,7 @@ export default () => {
     signup.className = 'signup';
     logout.className = 'logout';
     userId.className = 'userid';
-    buttons.className = 'buttons';  
+    buttons.className = 'buttons';
     logged.className = 'logged';
     //assign text to elements
     login.innerHTML = 'Log in';
@@ -48,7 +48,12 @@ export default () => {
     login.onclick = () => openModal('Log in');
     signup.onclick = () => openModal('Sign up');
 
-
+    const logOut = () => {
+      localStorage.removeItem('auth_key');
+      buttons.style.display = 'inline';
+      logged.style.display = 'none';
+    }
+    logout.onclick = logOut;
 
     return header;
   };
