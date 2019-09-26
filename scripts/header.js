@@ -73,7 +73,7 @@ export default () => {
         item.style.display = 'none';
       }
 
-    }
+    };
     logout.onclick = logOut;
 
     return header;

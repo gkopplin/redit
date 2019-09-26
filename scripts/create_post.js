@@ -32,9 +32,9 @@ export default () => {
 
         createPost(title.value, description.value);
 
-
         title.value = "";
         description.value = "";
+        createPostModal.style.visibility = 'hidden';
     };
 
     submit.setAttribute('type', 'submit');
