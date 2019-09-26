@@ -66,3 +66,7 @@ buttons {
   height: 20%;
   margin: 10px;
 }
+
+.add-comment, .delete {
+    z-index: 2;
+}

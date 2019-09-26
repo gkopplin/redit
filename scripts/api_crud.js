@@ -1,4 +1,5 @@
 import createPostItem from './post.js';
+import createComment from './comment';
 
 export const createPost = (title, description) => {
     fetch('http://thesi.generalassemb.ly:8080/post', {
@@ -52,8 +53,29 @@ export const fetchPosts = () => {
           const post = createPostItem(response[i].title, response[i].description, response[i].id);  //add username to posts
 
           document.querySelector('.homepage').append(post);
-          console.log(response);
       }
+      })
+      .catch(err => console.log(err));
+
+};
+
+export const fetchComments = (post, postId) => {
+  fetch(`http://thesi.generalassemb.ly:8080/post/${postId}/comment`, {
+      method: 'GET',
+      headers: {
+          'Content-Type': 'application/json'
+      }
+  })
+      .then(response => response.json())
+      .then(response => {
+        const commentList = document.createElement('ul');
+        for (let i = 0; i < response.length; i++) {
+        //   add commenter username
+          const comment = createComment(response[i].text);  
+          commentList.append(comment);
+        }
+        console.log(response);
+        post.append(commentList);
       })
       .catch(err => console.log(err));
 

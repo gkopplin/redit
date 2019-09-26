@@ -1,4 +1,4 @@
-import { deletePost } from './api_crud.js';
+import { deletePost, fetchComments } from './api_crud.js';
 
 export default (title, description, postId) => {
 
@@ -29,7 +29,7 @@ export default (title, description, postId) => {
     };
 
     // test this
-    post.onclick = () => {
+    const viewPost = () => {
       const allPosts = document.querySelectorAll('.post');
 
       for (let postItem of allPosts) {
@@ -37,7 +37,12 @@ export default (title, description, postId) => {
       }
 
       post.style.display = 'inline';
+
+      fetchComments(post, postId);
+      post.removeEventListener('click', viewPost);
     };
+
+    post.onclick = viewPost;
 
 
   //append
