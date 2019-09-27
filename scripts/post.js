@@ -31,7 +31,7 @@ export default (title, description, postId, username) => {
     // addComment.style.display = 'none';   //attached to form
     // delButton.style.display = 'none';
     commentArea.innerHTML = 'Leave a comment';
-    form.style.display = 'none';
+    // form.style.display = 'none';
 
     delButton.onclick = () => {
       deletePost(postId);
@@ -47,15 +47,12 @@ export default (title, description, postId, username) => {
 
       post.style.display = 'inline';
 
-      if(localStorage.getItem('auth_key')) {    //viewable only to logged in
-        // post.append(commentArea);     //render after viewing post
-        // post.append(addComment);      //appending but not visible
+      if (localStorage.getItem('auth_key')) {
         form.append(commentArea);
         form.append(addComment);
         post.append(form);
-        // addComment.style.display = 'inline';
-        form.style.display = 'inline';
       }
+ 
       const newElement = post.cloneNode(true);
       post.parentNode.replaceChild(newElement, post);   //?
 
@@ -69,10 +66,6 @@ export default (title, description, postId, username) => {
     post.append(postTitle);
     post.append(body);
     post.append(delButton);
-    // form.append(commentArea);
-    // form.append(addComment);
-
-    // post.append(commentArea);     //dont want this rendered until each post is clicked on
 
     form.onsubmit = e => {
       debugger
