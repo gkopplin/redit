@@ -1,7 +1,12 @@
-
+html {
+  overflow: hidden;
+  height: 100%;
+}
 
 body {
     margin: 0;
+    overflow: auto;
+    height: 100%;
 }
 
 .header {
@@ -65,9 +70,12 @@ buttons {
 .post {
   background: dimgrey;
   width: 70%;
-  height: 20%;
+  height: fit-content;
   margin: 10px;
   cursor: pointer;
+  border-radius: 5px;
+
+  /* box-shadow: 5px 5px lightblue; */
 }
 
 .add-comment, .delete {
@@ -80,4 +88,7 @@ buttons {
 .comment-area {
   width: 100px;
   height: 40px;
+}
+h1, p {
+  margin-left: 15px;
 }
