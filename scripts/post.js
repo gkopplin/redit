@@ -16,10 +16,10 @@ export default (title, description, postId, username) => {
     post.className = 'post';
     postTitle.className = 'title';
     body.className = 'body';
-    delButton.classList.add('delete', 'logged-in');
-    addComment.classList.add('add-comment', 'logged-in');
-    commentArea.classList.add('comment-area', 'logged-in');
-    form.classList.add('commForm', 'logged-in');
+    delButton.classList.add('delete', 'logged-in', 'post-show');
+    addComment.classList.add('add-comment', 'logged-in', 'post-show');
+    commentArea.classList.add('comment-area', 'logged-in', 'post-show');
+    form.classList.add('commForm', 'logged-in', 'post-show');
     author.className = 'author';
 
 
@@ -30,53 +30,65 @@ export default (title, description, postId, username) => {
     addComment.innerHTML = 'Add comment';
     author.innerHTML = username;
     addComment.setAttribute('type','submit');
-    // addComment.style.display = 'none';   //attached to form
-    // delButton.style.display = 'none';
     commentArea.setAttribute('placeholder', 'Leave a comment');
-    // form.style.display = 'none';
+    form.style.display = 'none';
 
     delButton.onclick = () => {
       deletePost(postId);
     };
 
     //refactor this function!!!
-    const viewPost = () => {
+    // const viewPost = () => {
+    //   window.location.hash = `post/${postId}`;
+    //   const allPosts = document.querySelectorAll('.post');
+
+    //   for (let postItem of allPosts) {
+    //     postItem.style.display = 'none';
+    //   }
+
+    //   post.style.display = 'inline';
+
+    //   const newElement = post.cloneNode(true);
+    //   post.parentNode.replaceChild(newElement, post);   //?
+
+    //   window.scrollTo(0,0);
+
+    //   if (localStorage.getItem('auth_key')) {
+    //     form.append(commentArea);
+    //     form.append(addComment);
+    //     form.append(delButton);
+    //     newElement.append(form);
+    //   }
+
+      // fetchComments(newElement, postId);
+
+      // form.onsubmit = e => {
+      //   e.preventDefault();
+      //   postComment(commentArea.value, postId);
+      //   commentArea.value = '';
+      // };
+    // };
+
+    post.onclick = () => {
       window.location.hash = `post/${postId}`;
-      const allPosts = document.querySelectorAll('.post');
-
-      for (let postItem of allPosts) {
-        postItem.style.display = 'none';
-      }
-
-      post.style.display = 'inline';
-
-      const newElement = post.cloneNode(true);
-      post.parentNode.replaceChild(newElement, post);   //?
-
-      window.scrollTo(0,0);
-
-      if (localStorage.getItem('auth_key')) {
-        form.append(commentArea);
-        form.append(addComment);
-        form.append(delButton);
-        newElement.append(form);
-      }
-
-      fetchComments(newElement, postId);
-
-      form.onsubmit = e => {
-        e.preventDefault();
-        postComment(commentArea.value, postId);
-        commentArea.value = '';
-      };
     };
 
-    post.onclick = viewPost;
+    fetchComments(post, postId);
+
+    form.onsubmit = e => {
+      e.preventDefault();
+      postComment(commentArea.value, postId);
+      commentArea.value = '';
+    };
 
   //append
+    form.append(commentArea);
+    form.append(addComment);
+    form.append(delButton);
     post.append(username);
     post.append(postTitle);
     post.append(body);
+    post.append(form);
 
 
     return post;

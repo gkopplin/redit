@@ -76,7 +76,11 @@ export const fetchComments = (post, postId) => {
       .then(response => response.json())
       .then(response => {
        const commentList = document.createElement('ul');
-       commentList.className = 'comment-list';
+       commentList.classList.add('comment-list', 'post-show');
+       if (localStorage.getItem('auth_key') === null || window.location.hash.length === 0) {
+           commentList.style.display = 'none';
+       }
+       
         for (let i = 0; i < response.length; i++) {
         //   add commenter username
           const comment = createComment(response[i].text);
@@ -102,7 +106,6 @@ export const postComment = (text, postId) => {
   })
       .then(response => response.json())
       .then(response => {
-        debugger
           const commentList = document.querySelector('.comment-list');
           const commented = createComment(response.text);   // return a comment
           commentList.append(commented);                    //append to curr ul
@@ -146,6 +149,9 @@ export const fetchPostbyId = (postId) => {
             }
             homepage.append(createHeader());
 
+            window.scrollTo(0, 0);
+
+            homepage.append(post);
 
             // refactor this to a function
             if (localStorage.getItem('auth_key')) {                           //fake inputs trigger logged in still and show undefined userID 
@@ -159,7 +165,6 @@ export const fetchPostbyId = (postId) => {
                     item.style.display = 'inline';
                 }
             }
-            homepage.append(post);
         })
         .catch(err => console.log(err));
 };
