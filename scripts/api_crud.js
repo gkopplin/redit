@@ -16,7 +16,7 @@ export const createPost = (title, description) => {
         .then(response => response.json())
         .then(response => {
             console.log(response);
-            const post = createPostItem(response.title, response.description, response.id);
+            const post = createPostItem(response.title, response.description, response.id, response.user.username);
             document.querySelector('.homepage').append(post);
         })
         .catch(err => console.log(err));
@@ -50,7 +50,7 @@ export const fetchPosts = () => {
         // for(let postItems in response) {
         for (let i = 0; i < 10; i++) {
           // const post = createPostItem(postItems.title, postItems.description, postItems.id);  //add username to posts
-          const post = createPostItem(response[i].title, response[i].description, response[i].id);  //add username to posts
+          const post = createPostItem(response[i].title, response[i].description, response[i].id, response[i].user.username);  //add username to posts
 
           document.querySelector('.homepage').append(post);
       }
