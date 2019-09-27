@@ -63,13 +63,21 @@ export const login = (email, password) => {
                 document.querySelector('.auth').style.visibility = 'hidden'; //hide modal
                 localStorage.setItem('auth_key', response.token);
                 localStorage.setItem('username', response.username);
-                
+
                 for (let item of allLoggedOut) {
                 item.style.display = "none";
                 }
                 for (let item of allLoggedIn) {
                 item.style.display = 'inline';
                 }
+
+                const refreshPosts = document.querySelectorAll('.post');
+                  let removeMe = document.querySelector('.comment-list');
+                    removeMe.remove();
+
+                  for(let posts of refreshPosts) {
+                    posts.style.display = 'inline';
+                  }
 
                 document.querySelector('.userid').innerHTML = response.username;
             }
