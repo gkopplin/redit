@@ -22,22 +22,22 @@ export default (title, description, postId, username) => {
     form.classList.add('commForm', 'logged-in');
 
 
-
   //elements
     postTitle.innerHTML = title;
     body.innerHTML = description;
     delButton.innerHTML = 'Delete';
     addComment.innerHTML = 'Add comment';
+    addComment.setAttribute('type','submit');
     // addComment.style.display = 'none';   //attached to form
     // delButton.style.display = 'none';
-    commentArea.innerHTML = 'Leave a comment';
+    commentArea.setAttribute('placeholder', 'Leave a comment');
     // form.style.display = 'none';
 
     delButton.onclick = () => {
       deletePost(postId);
     };
 
-    // test this
+    //refactor this function!!!
     const viewPost = () => {
       const allPosts = document.querySelectorAll('.post');
 
@@ -47,32 +47,31 @@ export default (title, description, postId, username) => {
 
       post.style.display = 'inline';
 
-      if (localStorage.getItem('auth_key')) {
-        form.append(commentArea);
-        form.append(addComment);
-        post.append(form);
-      }
- 
       const newElement = post.cloneNode(true);
       post.parentNode.replaceChild(newElement, post);   //?
 
+      if (localStorage.getItem('auth_key')) {
+        form.append(commentArea);
+        form.append(addComment);
+        newElement.append(form);
+      }
+
       fetchComments(newElement, postId);
+
+      form.onsubmit = e => {
+        e.preventDefault();
+        postComment(commentArea.value, postId);
+        commentArea.value = '';
+      };
     };
 
     post.onclick = viewPost;
-
 
   //append
     post.append(postTitle);
     post.append(body);
     post.append(delButton);
 
-    form.onsubmit = e => {
-      debugger
-      e.preventDefault();
-      // postComment(textarea.value, postId)
-      console.log('fire!');
-    };
 
     return post;
 };

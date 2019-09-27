@@ -69,6 +69,7 @@ export const fetchComments = (post, postId) => {
       .then(response => response.json())
       .then(response => {
        const commentList = document.createElement('ul');
+       commentList.className = 'comment-list';
         for (let i = 0; i < response.length; i++) {
         //   add commenter username
           const comment = createComment(response[i].text);
@@ -94,6 +95,8 @@ export const postComment = (text, postId) => {
   })
       .then(response => response.json())
       .then(response => {
+        debugger
+          const commentList = document.querySelector('.comment-list');
           const commented = createComment(response.text);   // return a comment
           commentList.append(commented);                    //append to curr ul
       })
