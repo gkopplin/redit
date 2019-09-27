@@ -41,6 +41,7 @@ export default (title, description, postId, username) => {
 
     //refactor this function!!!
     const viewPost = () => {
+      window.location.hash = `post/${postId}`;
       const allPosts = document.querySelectorAll('.post');
 
       for (let postItem of allPosts) {

@@ -68,7 +68,6 @@ export default () => {
 
     const logOut = () => {
       localStorage.removeItem('auth_key');
-      debugger
 
       let allLoggedOut = document.querySelectorAll('.logged-out');
       let allLoggedIn = document.querySelectorAll('.logged-in');
@@ -82,8 +81,8 @@ export default () => {
 
     };
     logout.onclick = logOut;
-
-    logo.onclick = () => {
+    
+    const refresh = () => {
         const homepage = document.querySelector('.homepage');
         while (homepage.firstChild) {
             homepage.removeChild(homepage.firstChild);
@@ -103,6 +102,17 @@ export default () => {
         }
         
         fetchPosts();
+    };
+
+    logo.onclick = () => {
+      refresh();
+      window.location.hash = '';
+    };
+
+    window.onhashchange = () => {
+      if (window.location.hash.length === 0) {
+        refresh();
+      }
     };
 
     return header;
