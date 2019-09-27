@@ -28,7 +28,7 @@ export default (title, description, postId) => {
     addComment.style.display = 'none';
     delButton.style.display = 'none';
     commentArea.innerHTML = 'Leave a comment';
-    commentArea.style.display = 'none';
+    // commentArea.style.display = 'none';
 
     delButton.onclick = () => {
       deletePost(postId);
@@ -43,12 +43,12 @@ export default (title, description, postId) => {
       }
 
       post.style.display = 'inline';
+      post.append(commentArea);     //render after viewing post
 
       const newElement = post.cloneNode(true);
-      post.parentNode.replaceChild(newElement, post);
+      post.parentNode.replaceChild(newElement, post);   //?
 
       fetchComments(newElement, postId);
-      post.append(commentArea);     //dont want this rendered until each post is clicked on
     };
 
     post.onclick = viewPost;
