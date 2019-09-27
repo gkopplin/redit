@@ -15,9 +15,16 @@ export const createPost = (title, description) => {
     })
         .then(response => response.json())
         .then(response => {
-            console.log(response);
-            const post = createPostItem(response.title, response.description, response.id, response.user.username);
-            document.querySelector('.homepage').append(post);
+            // Error handling
+            if (response.httpStatus) {
+                const error = document.createElement('p');
+                error.className = 'auth-error';
+                error.innerHTML = response.httpStatus === "BAD_REQUEST" ? "Title may not be blank" : response.httpStatus;
+                document.querySelector('.content').append(error);
+            } else {
+                const post = createPostItem(response.title, response.description, response.id, response.user.username);
+                document.querySelector('.homepage').append(post);
+            }
         })
         .catch(err => console.log(err));
 };

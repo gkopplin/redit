@@ -13,7 +13,7 @@ export default () => {
 
     // Add classnames
     auth.classList.add('modal', 'auth');
-    content.className = 'content';
+    content.className = 'auth-content';
     form.className = 'form';
     close.className = 'close';
     email.className = 'email';

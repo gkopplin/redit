@@ -12,7 +12,7 @@ export default () => {
 
     // Add classnames
     createPostModal.className = 'modal';
-    content.className = 'content';
+    content.className = 'post-content';
     form.className = 'form';
     close.className = 'close';
     title.className = 'title';
