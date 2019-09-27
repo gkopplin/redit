@@ -68,10 +68,10 @@ export const fetchComments = (post, postId) => {
   })
       .then(response => response.json())
       .then(response => {
-        const commentList = document.createElement('ul');
+       const commentList = document.createElement('ul');
         for (let i = 0; i < response.length; i++) {
         //   add commenter username
-          const comment = createComment(response[i].text);  
+          const comment = createComment(response[i].text);
           commentList.append(comment);
         }
         console.log(response);
@@ -79,4 +79,42 @@ export const fetchComments = (post, postId) => {
       })
       .catch(err => console.log(err));
 
+};
+
+export const postComment = (text, postId) => {
+  fetch(`http://thesi.generalassemb.ly:8080/comment/${postId}`, {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${localStorage.getItem('auth_key')}`
+      },
+      body: JSON.stringify({
+          text
+      }),
+  })
+      .then(response => response.json())
+      .then(response => {
+          const commented = createComment(response.text);
+          console.log(commented);
+          createPost(commented);
+          commentList.append(commented);
+      })
+      .catch(err => console.log(err));
+};
+
+export const deleteComment = () => {
+  fetch(`http://thesi.generalassemb.ly:8080/comment/${postId}`, {
+    method: 'DELETE',
+    headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem('auth_key')}`
+    }
+})
+    .then(response => response.json())
+    .then(response => {
+      console.log(response);            //delete comment logic here 
+    })
+    .catch(err => console.log(err));
+};
+  })
 };

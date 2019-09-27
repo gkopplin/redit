@@ -1,4 +1,4 @@
-import { deletePost, fetchComments } from './api_crud.js';
+import { deletePost, fetchComments, postComment } from './api_crud.js';
 
 export default (title, description, postId) => {
 
@@ -8,6 +8,7 @@ export default (title, description, postId) => {
   const body = document.createElement('p');
   const delButton = document.createElement('button');
   const addComment = document.createElement('button');
+  const commentArea = document.createElement('textarea');
 
   //add classnames
     post.className = 'post';
@@ -15,6 +16,9 @@ export default (title, description, postId) => {
     body.className = 'body';
     delButton.classList.add('delete', 'logged-in');
     addComment.classList.add('add-comment', 'logged-in');
+    commentArea.classList.add('comment-area', 'logged-in');
+
+
 
   //elements
     postTitle.innerHTML = title;
@@ -23,6 +27,8 @@ export default (title, description, postId) => {
     addComment.innerHTML = 'Add comment';
     addComment.style.display = 'none';
     delButton.style.display = 'none';
+    commentArea.innerHTML = 'Leave a comment';
+    commentArea.style.display = 'none';
 
     delButton.onclick = () => {
       deletePost(postId);
@@ -42,6 +48,7 @@ export default (title, description, postId) => {
       post.parentNode.replaceChild(newElement, post);
 
       fetchComments(newElement, postId);
+      post.append(commentArea);     //dont want this rendered until each post is clicked on
     };
 
     post.onclick = viewPost;
@@ -52,7 +59,12 @@ export default (title, description, postId) => {
     post.append(body);
     post.append(delButton);
     post.append(addComment);
+    // post.append(commentArea);     //dont want this rendered until each post is clicked on
 
+    addComment.onsubmit = () => {
+
+      postComment(textarea.value, postId)
+    };
 
     return post;
 };

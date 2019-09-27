@@ -11,10 +11,10 @@ export default () => {
     const logged = document.createElement('div');
     const login = document.createElement('button');
     const signup = document.createElement('button');
-    const userId = document.createElement('div');         //added userID
-    const logout = document.createElement('button');    //added logout button
+    const userId = document.createElement('div');
+    const logout = document.createElement('button');
     const createPostButton = document.createElement('button');
-    const createPostModal = createPost();
+    const createPostModal = createPost();                       //
     const authModal = createAuthModal();
     const logo = document.createElement('p');
 
@@ -55,8 +55,8 @@ export default () => {
     header.append(createPostModal);
 
     function openModal(buttonClicked) {
-        authModal.style.visibility = 'initial';
-        authModal.firstChild.firstChild.children[3].innerText = buttonClicked;
+      authModal.style.visibility = 'initial';
+      authModal.firstChild.firstChild.children[3].innerText = buttonClicked;
         if(buttonClicked === 'Log in') {
           authModal.firstChild.firstChild.children[0].style.display = 'none';
         } else {
@@ -68,7 +68,7 @@ export default () => {
 
     const logOut = () => {
       localStorage.removeItem('auth_key');
-      
+
       let allLoggedOut = document.querySelectorAll('.logged-out');
       let allLoggedIn = document.querySelectorAll('.logged-in');
 

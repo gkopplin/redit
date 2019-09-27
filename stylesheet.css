@@ -75,3 +75,7 @@ buttons {
 .logo {
   cursor: pointer;
 }
+.comment-area {
+  width: 100px;
+  height: 40px;
+}
