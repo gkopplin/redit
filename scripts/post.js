@@ -6,7 +6,7 @@ export default (title, description, postId, username) => {
   const post = document.createElement('div');
   const postTitle = document.createElement('h1');
   const body = document.createElement('p');
-  const author = document.createElement('h3'); 
+  const author = document.createElement('h3');
   const delButton = document.createElement('button');
   const addComment = document.createElement('button');
   const commentArea = document.createElement('textarea');
@@ -51,6 +51,8 @@ export default (title, description, postId, username) => {
 
       const newElement = post.cloneNode(true);
       post.parentNode.replaceChild(newElement, post);   //?
+
+      window.scrollTo(0,0);
 
       if (localStorage.getItem('auth_key')) {
         form.append(commentArea);
