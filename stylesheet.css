@@ -28,9 +28,8 @@ body {
     align-items: center;
 }
 
-buttons {
-  background-color: white;
-  padding: 1px;
+.buttons {
+  padding: 15px;
 }
 
 .login, .signup, .logout{
@@ -74,8 +73,6 @@ buttons {
   margin: 10px;
   cursor: pointer;
   border-radius: 5px;
-
-  /* box-shadow: 5px 5px lightblue; */
 }
 
 .add-comment, .delete {
