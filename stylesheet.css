@@ -65,8 +65,13 @@ buttons {
   width: 70%;
   height: 20%;
   margin: 10px;
+  cursor: pointer;
 }
 
 .add-comment, .delete {
     z-index: 2;
+}
+
+.logo {
+  cursor: pointer;
 }

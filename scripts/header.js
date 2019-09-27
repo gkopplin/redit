@@ -1,12 +1,12 @@
 import createAuthModal from './auth.js';
 import createPost from './create_post';
+import { fetchPosts } from './api_crud.js';
+import createHeader from './header';
 
 export default () => {
-    let header = document.createElement('div');
-    header.className = 'header';
-    header.innerText = 'header here';
 
     // Create elements
+    const header = document.createElement('div');
     const buttons = document.createElement('div');
     const logged = document.createElement('div');
     const login = document.createElement('button');
@@ -16,8 +16,10 @@ export default () => {
     const createPostButton = document.createElement('button');
     const createPostModal = createPost();
     const authModal = createAuthModal();
+    const logo = document.createElement('p');
 
     //classnames
+    header.className = 'header';
     login.classList.add('login','logged-out');
     signup.classList.add('signup','logged-out');
     logout.classList.add('logout', 'logged-in');
@@ -25,6 +27,7 @@ export default () => {
     buttons.classList.add('buttons','logged-out');
     logged.classList.add('logged', 'logged-in');
     createPostButton.classList.add('create-button', 'logged-in');
+    logo.className = 'logo';
 
     //assign text to elements
     login.innerHTML = 'Log in';
@@ -32,6 +35,7 @@ export default () => {
     logout.innerHTML = 'Logout';
     createPostButton.innerHTML = 'Create a post';
     userId.innerHTML = localStorage.getItem('username');
+    logo.innerHTML = 'redit';
 
     // Add event listeners
     createPostButton.onclick = () => {
@@ -44,6 +48,7 @@ export default () => {
     logged.append(userId);
     logged.append(logout);
     logged.append(createPostButton);
+    header.append(logo);
     header.append(buttons);
     header.append(logged);
     header.append(authModal);
@@ -76,6 +81,15 @@ export default () => {
 
     };
     logout.onclick = logOut;
+
+    logo.onclick = () => {
+        const homepage = document.querySelector('.homepage');
+        while (homepage.firstChild) {
+            homepage.removeChild(homepage.firstChild);
+        }
+        homepage.append(createHeader());
+        fetchPosts();
+    };
 
     return header;
   };
