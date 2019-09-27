@@ -130,7 +130,7 @@ export const postComment = (text, postId) => {
 //   })
 // };
 
-export const fetchPostbyId = (postId) => {
+export const fetchPostbyId = (hash) => {
     fetch('http://thesi.generalassemb.ly:8080/post/list', {
         method: 'GET',
         headers: {
@@ -139,6 +139,7 @@ export const fetchPostbyId = (postId) => {
     })
         .then(response => response.json())
         .then(response => {
+            const postId = parseInt(hash.split('/')[1]);
             const postResponse = response.filter(el => el.id === postId)[0];
             const post = createPostItem(postResponse.title, postResponse.description, postResponse.id, postResponse.user.username);  
 

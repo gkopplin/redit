@@ -113,9 +113,7 @@ export default () => {
       if (window.location.hash.length === 0) {
         refresh();
       } else {
-        const hash = window.location.hash;
-        const postId = parseInt(hash.split('/')[1]);
-        fetchPostbyId(postId);
+        fetchPostbyId(window.location.hash);
       }
     };
 
