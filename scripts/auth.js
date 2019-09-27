@@ -12,7 +12,7 @@ export default () => {
     const submit = document.createElement('button');
 
     // Add classnames
-    auth.className = 'modal';
+    auth.classList.add('modal', 'auth');
     content.className = 'content';
     form.className = 'form';
     close.className = 'close';

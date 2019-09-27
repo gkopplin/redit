@@ -1,11 +1,12 @@
 import { deletePost, fetchComments, postComment } from './api_crud.js';
 
-export default (title, description, postId) => {
+export default (title, description, postId, username) => {
 
   //create elements
   const post = document.createElement('div');
   const postTitle = document.createElement('h1');
   const body = document.createElement('p');
+  const author = document.createElement('h3'); // finish this
   const delButton = document.createElement('button');
   const addComment = document.createElement('button');
   const commentArea = document.createElement('textarea');
