@@ -28,6 +28,8 @@ export default () => {
     close.innerHTML = '&#10060';
     close.onclick = () => {         //make function to call within onsubmit
         auth.style.visibility = "hidden";
+        const error = document.querySelector('.auth-error');
+        error && error.remove();
     };
 
     //in progress/clean up later!
