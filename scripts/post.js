@@ -43,10 +43,12 @@ export default (title, description, postId) => {
       }
 
       post.style.display = 'inline';
-      post.append(commentArea);     //render after viewing post
-      post.append(addComment);      //appending but not visible
-      addComment.style.display = 'inline';
 
+      if(localStorage.getItem('auth_key')) {
+        post.append(commentArea);     //render after viewing post
+        post.append(addComment);      //appending but not visible
+        addComment.style.display = 'inline';
+      }
       const newElement = post.cloneNode(true);
       post.parentNode.replaceChild(newElement, post);   //?
 
