@@ -1,5 +1,5 @@
 import createHeader from './header.js';
-import {fetchPosts} from './api_crud.js';
+import {fetchPosts, fetchPostbyId} from './api_crud.js';
 
 export const createHomepage = () => {
   let homepage = document.createElement('div');
@@ -8,7 +8,11 @@ export const createHomepage = () => {
   scrollWindow.className = 'scroll-window';
 
   homepage.append(createHeader());
-  fetchPosts();
+  if (window.location.hash.length === 0) {
+    fetchPosts();
+  } else {
+    fetchPostbyId(window.location.hash);
+  }
   document.body.append(homepage);
   homepage.append(scrollWindow);
 

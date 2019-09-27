@@ -1,5 +1,6 @@
 import createPostItem from './post.js';
 import createComment from './comment';
+import createHeader from './header';
 
 export const createPost = (title, description) => {
     fetch('http://thesi.generalassemb.ly:8080/post', {
@@ -57,14 +58,12 @@ export const fetchPosts = () => {
       .then(response => {
         // for(let postItems in response) {
         for (let i = 0; i < 10; i++) {
-          // const post = createPostItem(postItems.title, postItems.description, postItems.id);  //add username to posts
-          const post = createPostItem(response[i].title, response[i].description, response[i].id, response[i].user.username);  //add username to posts
+          const post = createPostItem(response[i].title, response[i].description, response[i].id, response[i].user.username);  
 
           document.querySelector('.scroll-window').append(post); //chris changed
       }
       })
       .catch(err => console.log(err));
-
 };
 
 export const fetchComments = (post, postId) => {
@@ -77,7 +76,11 @@ export const fetchComments = (post, postId) => {
       .then(response => response.json())
       .then(response => {
        const commentList = document.createElement('ul');
-       commentList.className = 'comment-list';
+       commentList.classList.add('comment-list', 'post-show');
+       if (localStorage.getItem('auth_key') === null || window.location.hash.length === 0) {
+           commentList.style.display = 'none';
+       }
+       
         for (let i = 0; i < response.length; i++) {
         //   add commenter username
           const comment = createComment(response[i].text);
@@ -103,7 +106,6 @@ export const postComment = (text, postId) => {
   })
       .then(response => response.json())
       .then(response => {
-        debugger
           const commentList = document.querySelector('.comment-list');
           const commented = createComment(response.text);   // return a comment
           commentList.append(commented);                    //append to curr ul
@@ -127,3 +129,43 @@ export const postComment = (text, postId) => {
 // };
 //   })
 // };
+
+export const fetchPostbyId = (hash) => {
+    fetch('http://thesi.generalassemb.ly:8080/post/list', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(response => response.json())
+        .then(response => {
+            const postId = parseInt(hash.split('/')[1]);
+            const postResponse = response.filter(el => el.id === postId)[0];
+            const post = createPostItem(postResponse.title, postResponse.description, postResponse.id, postResponse.user.username);  
+
+            const homepage = document.querySelector('.homepage');
+
+            while (homepage.firstChild) {
+                homepage.removeChild(homepage.firstChild);
+            }
+            homepage.append(createHeader());
+
+            window.scrollTo(0, 0);
+
+            homepage.append(post);
+
+            // refactor this to a function
+            if (localStorage.getItem('auth_key')) {                           //fake inputs trigger logged in still and show undefined userID 
+                let allLoggedOut = document.querySelectorAll('.logged-out');
+                let allLoggedIn = document.querySelectorAll('.logged-in');
+
+                for (let item of allLoggedOut) {
+                    item.style.display = "none";
+                }
+                for (let item of allLoggedIn) {
+                    item.style.display = 'inline';
+                }
+            }
+        })
+        .catch(err => console.log(err));
+};
