@@ -17,7 +17,7 @@ export const signup = (username, email, password) => {
         if (response.httpStatus) {
             const error = document.createElement('p');
             error.className = 'auth-error';
-            error.innerHTML = response.httpStatus;
+            error.innerHTML = response.httpStatus === "BAD_REQUEST" ? "Credentials invalid" : response.httpStatus;
             document.querySelector('.content').append(error);
         } else {
             let allLoggedOut = document.querySelectorAll('.logged-out');
