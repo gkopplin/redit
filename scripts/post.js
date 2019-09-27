@@ -9,6 +9,7 @@ export default (title, description, postId) => {
   const delButton = document.createElement('button');
   const addComment = document.createElement('button');
   const commentArea = document.createElement('textarea');
+  const form = document.createElement('form');
 
   //add classnames
     post.className = 'post';
@@ -17,6 +18,7 @@ export default (title, description, postId) => {
     delButton.classList.add('delete', 'logged-in');
     addComment.classList.add('add-comment', 'logged-in');
     commentArea.classList.add('comment-area', 'logged-in');
+    form.classList.add('commForm', 'logged-in');
 
 
 
@@ -25,10 +27,10 @@ export default (title, description, postId) => {
     body.innerHTML = description;
     delButton.innerHTML = 'Delete';
     addComment.innerHTML = 'Add comment';
-    addComment.style.display = 'none';
-    delButton.style.display = 'none';
+    // addComment.style.display = 'none';   //attached to form
+    // delButton.style.display = 'none';
     commentArea.innerHTML = 'Leave a comment';
-    // commentArea.style.display = 'none';
+    form.style.display = 'none';
 
     delButton.onclick = () => {
       deletePost(postId);
@@ -44,10 +46,14 @@ export default (title, description, postId) => {
 
       post.style.display = 'inline';
 
-      if(localStorage.getItem('auth_key')) {
-        post.append(commentArea);     //render after viewing post
-        post.append(addComment);      //appending but not visible
-        addComment.style.display = 'inline';
+      if(localStorage.getItem('auth_key')) {    //viewable only to logged in
+        // post.append(commentArea);     //render after viewing post
+        // post.append(addComment);      //appending but not visible
+        form.append(commentArea);
+        form.append(addComment);
+        post.append(form);
+        // addComment.style.display = 'inline';
+        form.style.display = 'inline';
       }
       const newElement = post.cloneNode(true);
       post.parentNode.replaceChild(newElement, post);   //?
@@ -62,12 +68,16 @@ export default (title, description, postId) => {
     post.append(postTitle);
     post.append(body);
     post.append(delButton);
-    post.append(addComment);
+    // form.append(commentArea);
+    // form.append(addComment);
+
     // post.append(commentArea);     //dont want this rendered until each post is clicked on
 
-    addComment.onsubmit = () => {
-
-      postComment(textarea.value, postId)
+    form.onsubmit = e => {
+      debugger
+      e.preventDefault();
+      // postComment(textarea.value, postId)
+      console.log('fire!');
     };
 
     return post;

@@ -22,7 +22,7 @@ export const createPost = (title, description) => {
         .catch(err => console.log(err));
 };
 
-//display error in thml vs console.log
+//display error in html vs console.log
 export const deletePost = (postId) => {
   fetch(`http://thesi.generalassemb.ly:8080/post/${postId}`, {
       method: 'DELETE',
