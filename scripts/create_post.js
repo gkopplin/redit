@@ -11,7 +11,7 @@ export default () => {
     const close = document.createElement('a');
 
     // Add classnames
-    createPostModal.className = 'modal';
+    createPostModal.classList.add('modal', 'create-post');
     content.className = 'post-content';
     form.className = 'form';
     close.className = 'close';
@@ -34,13 +34,13 @@ export default () => {
 
         title.value = "";
         description.value = "";
-        createPostModal.style.visibility = 'hidden';
     };
 
     submit.setAttribute('type', 'submit');
 
     close.onclick = () => {
         createPostModal.style.visibility = 'hidden';
+        document.querySelector('.post-error').remove();
     };
 
     // Append elements

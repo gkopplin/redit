@@ -18,18 +18,19 @@ export const createPost = (title, description) => {
             // Error handling
             if (response.httpStatus) {
                 const error = document.createElement('p');
-                error.className = 'auth-error';
+                error.className = 'post-error';
                 error.innerHTML = response.httpStatus === "BAD_REQUEST" ? "Title may not be blank" : response.httpStatus;
-                document.querySelector('.content').append(error);
+                document.querySelector('.post-content').append(error);
             } else {
                 const post = createPostItem(response.title, response.description, response.id, response.user.username);
                 document.querySelector('.homepage').append(post);
+                document.querySelector('.create-post').style.visibility = 'hidden';
             }
         })
         .catch(err => console.log(err));
 };
 
-//display error in html vs console.log
+//API endpoint is broken
 export const deletePost = (postId) => {
   fetch(`http://thesi.generalassemb.ly:8080/post/${postId}`, {
       method: 'DELETE',
@@ -40,7 +41,7 @@ export const deletePost = (postId) => {
   })
       .then(response => response.json())
       .then(response => {
-
+        console.log(response);
       })
       .catch(err => console.log(err));
 };
