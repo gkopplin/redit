@@ -1,5 +1,6 @@
 import createPostItem from './post.js';
 import createComment from './comment';
+import createHeader from './header';
 
 export const createPost = (title, description) => {
     fetch('http://thesi.generalassemb.ly:8080/post', {
@@ -57,14 +58,12 @@ export const fetchPosts = () => {
       .then(response => {
         // for(let postItems in response) {
         for (let i = 0; i < 10; i++) {
-          // const post = createPostItem(postItems.title, postItems.description, postItems.id);  //add username to posts
-          const post = createPostItem(response[i].title, response[i].description, response[i].id, response[i].user.username);  //add username to posts
+          const post = createPostItem(response[i].title, response[i].description, response[i].id, response[i].user.username);  
 
           document.querySelector('.homepage').append(post);
       }
       })
       .catch(err => console.log(err));
-
 };
 
 export const fetchComments = (post, postId) => {
@@ -127,3 +126,40 @@ export const postComment = (text, postId) => {
 // };
 //   })
 // };
+
+export const fetchPostbyId = (postId) => {
+    fetch('http://thesi.generalassemb.ly:8080/post/list', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(response => response.json())
+        .then(response => {
+            const postResponse = response.filter(el => el.id === postId)[0];
+            const post = createPostItem(postResponse.title, postResponse.description, postResponse.id, postResponse.user.username);  
+
+            const homepage = document.querySelector('.homepage');
+
+            while (homepage.firstChild) {
+                homepage.removeChild(homepage.firstChild);
+            }
+            homepage.append(createHeader());
+
+
+            // refactor this to a function
+            if (localStorage.getItem('auth_key')) {                           //fake inputs trigger logged in still and show undefined userID 
+                let allLoggedOut = document.querySelectorAll('.logged-out');
+                let allLoggedIn = document.querySelectorAll('.logged-in');
+
+                for (let item of allLoggedOut) {
+                    item.style.display = "none";
+                }
+                for (let item of allLoggedIn) {
+                    item.style.display = 'inline';
+                }
+            }
+            homepage.append(post);
+        })
+        .catch(err => console.log(err));
+};

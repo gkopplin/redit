@@ -1,6 +1,6 @@
 import createAuthModal from './auth.js';
 import createPost from './create_post';
-import { fetchPosts } from './api_crud.js';
+import { fetchPosts, fetchPostbyId } from './api_crud.js';
 import createHeader from './header';
 
 export default () => {
@@ -112,6 +112,10 @@ export default () => {
     window.onhashchange = () => {
       if (window.location.hash.length === 0) {
         refresh();
+      } else {
+        const hash = window.location.hash;
+        const postId = parseInt(hash.split('/')[1]);
+        fetchPostbyId(postId);
       }
     };
 
