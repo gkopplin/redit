@@ -57,6 +57,7 @@ export const login = (email, password) => {
               item.style.display = 'inline';
             }
 
+            document.querySelector('.userid').innerHTML = response.username;
         })
         .catch(err => console.log(err));
 };

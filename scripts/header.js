@@ -68,6 +68,7 @@ export default () => {
 
     const logOut = () => {
       localStorage.removeItem('auth_key');
+      debugger
 
       let allLoggedOut = document.querySelectorAll('.logged-out');
       let allLoggedIn = document.querySelectorAll('.logged-in');

@@ -57,6 +57,7 @@ export default (title, description, postId, username) => {
       if (localStorage.getItem('auth_key')) {
         form.append(commentArea);
         form.append(addComment);
+        form.append(delButton);
         newElement.append(form);
       }
 
@@ -75,7 +76,6 @@ export default (title, description, postId, username) => {
     post.append(username);
     post.append(postTitle);
     post.append(body);
-    post.append(delButton);
 
 
     return post;
