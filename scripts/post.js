@@ -6,7 +6,7 @@ export default (title, description, postId, username) => {
   const post = document.createElement('div');
   const postTitle = document.createElement('h1');
   const body = document.createElement('p');
-  const author = document.createElement('h3'); // finish this
+  const author = document.createElement('h3'); 
   const delButton = document.createElement('button');
   const addComment = document.createElement('button');
   const commentArea = document.createElement('textarea');
@@ -20,6 +20,7 @@ export default (title, description, postId, username) => {
     addComment.classList.add('add-comment', 'logged-in');
     commentArea.classList.add('comment-area', 'logged-in');
     form.classList.add('commForm', 'logged-in');
+    author.className = 'author';
 
 
   //elements
@@ -27,6 +28,7 @@ export default (title, description, postId, username) => {
     body.innerHTML = description;
     delButton.innerHTML = 'Delete';
     addComment.innerHTML = 'Add comment';
+    author.innerHTML = username;
     addComment.setAttribute('type','submit');
     // addComment.style.display = 'none';   //attached to form
     // delButton.style.display = 'none';
@@ -68,6 +70,7 @@ export default (title, description, postId, username) => {
     post.onclick = viewPost;
 
   //append
+    post.append(username);
     post.append(postTitle);
     post.append(body);
     post.append(delButton);
