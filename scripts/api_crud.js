@@ -60,7 +60,7 @@ export const fetchPosts = () => {
           // const post = createPostItem(postItems.title, postItems.description, postItems.id);  //add username to posts
           const post = createPostItem(response[i].title, response[i].description, response[i].id, response[i].user.username);  //add username to posts
 
-          document.querySelector('.homepage').append(post);
+          document.querySelector('.scroll-window').append(post); //chris changed
       }
       })
       .catch(err => console.log(err));
