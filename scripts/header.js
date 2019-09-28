@@ -16,7 +16,7 @@ export default () => {
     const createPostButton = document.createElement('button');
     const createPostModal = createPost();                       //
     const authModal = createAuthModal();
-    const logo = document.createElement('p');
+    const logo = document.createElement('img');
 
     //classnames
     header.className = 'header';
@@ -35,7 +35,7 @@ export default () => {
     logout.innerHTML = 'Logout';
     createPostButton.innerHTML = 'Create a post';
     userId.innerHTML = localStorage.getItem('username');
-    logo.innerHTML = 'redit';
+    logo.setAttribute('src', 'https://i.imgur.com/wUsFUAS.png');
 
     // Add event listeners
     createPostButton.onclick = () => {
@@ -81,7 +81,7 @@ export default () => {
 
     };
     logout.onclick = logOut;
-    
+
     const refresh = () => {
         const homepage = document.querySelector('.homepage');
         while (homepage.firstChild) {
@@ -89,7 +89,7 @@ export default () => {
         }
         homepage.append(header);
 
-        if (localStorage.getItem('auth_key')) {                           //fake inputs trigger logged in still and show undefined userID 
+        if (localStorage.getItem('auth_key')) {                           //fake inputs trigger logged in still and show undefined userID
             let allLoggedOut = document.querySelectorAll('.logged-out');
             let allLoggedIn = document.querySelectorAll('.logged-in');
 
@@ -100,7 +100,7 @@ export default () => {
                 item.style.display = 'inline';
             }
         }
-        
+
         fetchPosts();
     };
 

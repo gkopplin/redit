@@ -80,10 +80,6 @@ body {
   max-width: 400px;
   max-height: 300px;
 }
-/* .form {
-  width: 275px;
-  height: 150px;
-} */
 
 .add-comment, .delete {
     z-index: 2;
@@ -91,6 +87,9 @@ body {
 
 .logo {
   cursor: pointer;
+  width: 156px;
+  border-radius: 20px;
+  text-align:left;
 }
 .comment-area {
   width: 100px;
