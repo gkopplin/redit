@@ -22,7 +22,7 @@ body {
 .homepage {
     margin: 50px 0 0 0;
     background: black;
-    height: 100em;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     align-items: center;
