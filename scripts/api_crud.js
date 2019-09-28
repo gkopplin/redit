@@ -1,6 +1,5 @@
 import createPostItem from './post.js';
 import createComment from './comment';
-import createHeader from './header';
 
 export const createPost = (title, description) => {
     fetch('http://thesi.generalassemb.ly:8080/post', {
@@ -86,7 +85,7 @@ export const fetchComments = (post, postId) => {
 
         for (let i = 0; i < response.length; i++) {
         //   add commenter username
-          const comment = createComment(response[i].text);
+          const comment = createComment(response[i].text, response[i].id, response[i].user.username);
           commentList.append(comment);
         }
         console.log(response);
@@ -115,23 +114,6 @@ export const postComment = (text, postId) => {
       })
       .catch(err => console.log(err));
 };
-
-// export const deleteComment = (postId) => {
-//   fetch(`http://thesi.generalassemb.ly:8080/comment/${postId}`, {
-//     method: 'DELETE',
-//     headers: {
-//         'Content-Type': 'application/json',
-//         'Authorization': `Bearer ${localStorage.getItem('auth_key')}`
-//     }
-// })
-//     .then(response => response.json())
-//     .then(response => {
-//       console.log(response);            //delete comment logic here
-//     })
-//     .catch(err => console.log(err));
-// };
-//   })
-// };
 
 export const fetchPostbyId = (hash) => {
     fetch('http://thesi.generalassemb.ly:8080/post/list', {
@@ -169,6 +151,22 @@ export const fetchPostbyId = (hash) => {
                 for (let item of allLoggedIn) {
                     item.style.display = 'inline';
                 }
+            }
+        })
+        .catch(err => console.log(err));
+};
+
+export const deleteComment = (commentId, comment) => {
+    fetch(`http://thesi.generalassemb.ly:8080/comment/${commentId}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${localStorage.getItem('auth_key')}`
+        }
+    })
+        .then(response => {
+            if (response.status === 200) {
+                comment.remove();
             }
         })
         .catch(err => console.log(err));

@@ -16,7 +16,7 @@ export default (title, description, postId, username) => {
     post.className = 'post';
     postTitle.className = 'title';
     body.className = 'body';
-    delButton.classList.add('delete', 'logged-in', 'post-show');
+    delButton.classList.add('delete', 'logged-in', 'post-show', 'owned');
     addComment.classList.add('add-comment', 'logged-in', 'post-show');
     commentArea.classList.add('comment-area', 'logged-in', 'post-show');
     form.classList.add('commForm', 'logged-in', 'post-show');
@@ -26,16 +26,12 @@ export default (title, description, postId, username) => {
   //elements
     postTitle.innerHTML = title;
     body.innerHTML = description;
-    delButton.innerHTML = 'Delete';
+    delButton.innerHTML = 'Delete post';
     addComment.innerHTML = 'Add comment';
     author.innerHTML = username;
     addComment.setAttribute('type','submit');
     commentArea.setAttribute('placeholder', 'Leave a comment');
     form.style.display = 'none';
-
-    delButton.onclick = () => {
-      deletePost(postId);
-    };
 
     post.onclick = () => {
       window.location.hash = `post/${postId}`;
@@ -52,7 +48,9 @@ export default (title, description, postId, username) => {
   //append
     form.append(commentArea);
     form.append(addComment);
-    form.append(delButton);
+    if (localStorage.getItem('username') === username) {
+      form.append(delButton);
+    }
     post.append(username);
     post.append(postTitle);
     post.append(body);
