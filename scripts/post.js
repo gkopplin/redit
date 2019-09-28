@@ -37,38 +37,6 @@ export default (title, description, postId, username) => {
       deletePost(postId);
     };
 
-    //refactor this function!!!
-    // const viewPost = () => {
-    //   window.location.hash = `post/${postId}`;
-    //   const allPosts = document.querySelectorAll('.post');
-
-    //   for (let postItem of allPosts) {
-    //     postItem.style.display = 'none';
-    //   }
-
-    //   post.style.display = 'inline';
-
-    //   const newElement = post.cloneNode(true);
-    //   post.parentNode.replaceChild(newElement, post);   //?
-
-    //   window.scrollTo(0,0);
-
-    //   if (localStorage.getItem('auth_key')) {
-    //     form.append(commentArea);
-    //     form.append(addComment);
-    //     form.append(delButton);
-    //     newElement.append(form);
-    //   }
-
-      // fetchComments(newElement, postId);
-
-      // form.onsubmit = e => {
-      //   e.preventDefault();
-      //   postComment(commentArea.value, postId);
-      //   commentArea.value = '';
-      // };
-    // };
-
     post.onclick = () => {
       window.location.hash = `post/${postId}`;
     };
