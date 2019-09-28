@@ -33,10 +33,6 @@ export default (title, description, postId, username) => {
     commentArea.setAttribute('placeholder', 'Leave a comment');
     form.style.display = 'none';
 
-    delButton.onclick = () => {
-      deletePost(postId);
-    };
-
     post.onclick = () => {
       window.location.hash = `post/${postId}`;
     };
@@ -52,7 +48,9 @@ export default (title, description, postId, username) => {
   //append
     form.append(commentArea);
     form.append(addComment);
-    form.append(delButton);
+    if (localStorage.getItem('username') === username) {
+      form.append(delButton);
+    }
     post.append(username);
     post.append(postTitle);
     post.append(body);
