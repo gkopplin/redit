@@ -144,11 +144,12 @@ export const fetchPostbyId = (hash) => {
             const post = createPostItem(postResponse.title, postResponse.description, postResponse.id, postResponse.user.username);  
 
             const homepage = document.querySelector('.homepage');
-
+            const header = homepage.firstChild;
             while (homepage.firstChild) {
                 homepage.removeChild(homepage.firstChild);
             }
-            homepage.append(createHeader());
+            
+            homepage.append(header);
 
             window.scrollTo(0, 0);
 
