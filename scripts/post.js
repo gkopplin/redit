@@ -16,7 +16,7 @@ export default (title, description, postId, username) => {
     post.className = 'post';
     postTitle.className = 'title';
     body.className = 'body';
-    delButton.classList.add('delete', 'logged-in', 'post-show');
+    delButton.classList.add('delete', 'logged-in', 'post-show', 'owned');
     addComment.classList.add('add-comment', 'logged-in', 'post-show');
     commentArea.classList.add('comment-area', 'logged-in', 'post-show');
     form.classList.add('commForm', 'logged-in', 'post-show');
@@ -26,7 +26,7 @@ export default (title, description, postId, username) => {
   //elements
     postTitle.innerHTML = title;
     body.innerHTML = description;
-    delButton.innerHTML = 'Delete';
+    delButton.innerHTML = 'Delete post';
     addComment.innerHTML = 'Add comment';
     author.innerHTML = username;
     addComment.setAttribute('type','submit');
