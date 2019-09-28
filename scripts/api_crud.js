@@ -58,13 +58,16 @@ export const fetchPosts = () => {
       .then(response => {
         // for(let postItems in response) {
         for (let i = 0; i < 10; i++) {
-          const post = createPostItem(response[i].title, response[i].description, response[i].id, response[i].user.username);  
+          const post = createPostItem(response[i].title, response[i].description, response[i].id, response[i].user.username);
 
-          document.querySelector('.scroll-window').append(post); //chris changed
+          // document.querySelector('.homepage').append(post);
+          document.querySelector('.scroll-window').append(post);
+
       }
       })
       .catch(err => console.log(err));
 };
+
 
 export const fetchComments = (post, postId) => {
   fetch(`http://thesi.generalassemb.ly:8080/post/${postId}/comment`, {
@@ -80,7 +83,7 @@ export const fetchComments = (post, postId) => {
        if (localStorage.getItem('auth_key') === null || window.location.hash.length === 0) {
            commentList.style.display = 'none';
        }
-       
+
         for (let i = 0; i < response.length; i++) {
         //   add commenter username
           const comment = createComment(response[i].text);
@@ -141,14 +144,14 @@ export const fetchPostbyId = (hash) => {
         .then(response => {
             const postId = parseInt(hash.split('/')[1]);
             const postResponse = response.filter(el => el.id === postId)[0];
-            const post = createPostItem(postResponse.title, postResponse.description, postResponse.id, postResponse.user.username);  
+            const post = createPostItem(postResponse.title, postResponse.description, postResponse.id, postResponse.user.username);
 
             const homepage = document.querySelector('.homepage');
             const header = homepage.firstChild;
             while (homepage.firstChild) {
                 homepage.removeChild(homepage.firstChild);
             }
-            
+
             homepage.append(header);
 
             window.scrollTo(0, 0);
@@ -156,7 +159,7 @@ export const fetchPostbyId = (hash) => {
             homepage.append(post);
 
             // refactor this to a function
-            if (localStorage.getItem('auth_key')) {                           //fake inputs trigger logged in still and show undefined userID 
+            if (localStorage.getItem('auth_key')) {                           //fake inputs trigger logged in still and show undefined userID
                 let allLoggedOut = document.querySelectorAll('.logged-out');
                 let allLoggedIn = document.querySelectorAll('.logged-in');
 
