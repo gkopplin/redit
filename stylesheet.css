@@ -74,6 +74,16 @@ body {
   cursor: pointer;
   border-radius: 5px;
 }
+.post-content {
+  min-width: 300px;
+  min-height: 200px;
+  max-width: 400px;
+  max-height: 300px;
+}
+/* .form {
+  width: 275px;
+  height: 150px;
+} */
 
 .add-comment, .delete {
     z-index: 2;

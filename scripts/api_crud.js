@@ -133,7 +133,7 @@ export const fetchPostbyId = (hash) => {
 
             homepage.append(header);
 
-            window.scrollTo(0, 0);
+            // window.scrollTo(0, 0);
 
             homepage.append(post);
 
