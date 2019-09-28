@@ -59,14 +59,11 @@ export const fetchPosts = () => {
         for (let i = 0; i < 10; i++) {
           const post = createPostItem(response[i].title, response[i].description, response[i].id, response[i].user.username);
 
-          // document.querySelector('.homepage').append(post);
-          document.querySelector('.scroll-window').append(post);
-
+          document.querySelector('.homepage').append(post);
       }
       })
       .catch(err => console.log(err));
 };
-
 
 export const fetchComments = (post, postId) => {
   fetch(`http://thesi.generalassemb.ly:8080/post/${postId}/comment`, {
