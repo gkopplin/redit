@@ -13,13 +13,14 @@ export const signup = (username, email, password) => {
     })
     .then(response => response.json())
     .then(response => {
-        // Error handling
         if (response.httpStatus) {
+            // Error handling
             const error = document.createElement('p');
             error.className = 'auth-error';
             error.innerHTML = response.httpStatus === "BAD_REQUEST" ? "Credentials invalid" : response.httpStatus;
             document.querySelector('.auth-content').append(error);
         } else {
+            // Successful sign up
             let allLoggedOut = document.querySelectorAll('.logged-out');
             let allLoggedIn = document.querySelectorAll('.logged-in');
             localStorage.setItem('auth_key', response.token);
@@ -50,13 +51,14 @@ export const login = (email, password) => {
     })
         .then(response => response.json())
         .then(response => {
-            // Error handling
             if (response.httpStatus) {
+                // Error handling
                 const error = document.createElement('p');
                 error.innerHTML = response.message;
                 error.className = 'auth-error';
                 document.querySelector('.auth-content').append(error);
             } else {
+                // Successful log in
                 //refactor code later
                 let allLoggedOut = document.querySelectorAll('.logged-out');
                 let allLoggedIn = document.querySelectorAll('.logged-in');

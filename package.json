@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/gkopplin/redit#readme",
   "dependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.0",
     "webpack": "^4.41.0",
     "webpack-cli": "^3.3.9"
   }
