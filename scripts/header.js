@@ -87,7 +87,7 @@ export default () => {
         while (homepage.firstChild) {
             homepage.removeChild(homepage.firstChild);
         }
-        homepage.append(createHeader());
+        homepage.append(header);
 
         if (localStorage.getItem('auth_key')) {                           //fake inputs trigger logged in still and show undefined userID 
             let allLoggedOut = document.querySelectorAll('.logged-out');
