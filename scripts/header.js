@@ -105,7 +105,6 @@ export default () => {
     };
 
     logo.onclick = () => {
-      refresh();
       window.location.hash = '';
     };
 

@@ -1,6 +1,5 @@
 import createPostItem from './post.js';
 import createComment from './comment';
-import createHeader from './header';
 
 export const createPost = (title, description) => {
     fetch('http://thesi.generalassemb.ly:8080/post', {
