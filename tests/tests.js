@@ -1,5 +1,5 @@
-import * as ApiAuth from '../scripts/api_auth';
-import * as ApiCrud from '../scripts/api_crud';
+import {login} from './api_auth.js';
+import * as ApiCrud from '../scripts/api_crud.js';
 
 mocha.setup('bdd');
 const assert = chai.assert;
@@ -22,7 +22,7 @@ describe("Log in API request", function () {
     describe('on sucessful login up', function () {
         it("saves api key to local storage", function () {
             debugger
-            ApiAuth.login('cookie@cookie.com', 'test123').then(
+            login('cookie@cookie.com', 'test123').then(
                 expect(localStorage.getItem('auth_key')).to.equal("eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjb29raWVAY29va2llLmNvbSIsImV4cCI6MTU2OTcwMzMyMCwiaWF0IjoxNTY5Njg1MzIwfQ.Fo-s57_RiM16WdzLFHhnhRgoDmmgDtm2sJf6ktWhKaLfKDRJ1jWSrQeD3xfBCtUV7cce8kl2FTik7lXTiWvzXA") 
             );
         });
