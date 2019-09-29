@@ -1,4 +1,4 @@
-<a href="https://i.imgur.com/wUsFUAS.png">
+<img src="https://i.imgur.com/wUsFUAS.png" />
 
 
 *redit is a small slice of its namesake. The application has full functionality affording users the ability to interact with the entire redit community by creating unqiue posts and leaving/receiving peer feedback.
