@@ -7,7 +7,8 @@ body {
     margin: 0;
     overflow: auto;
     overscroll-behavior: none;
-    height: 150%;
+    height: 100%;
+    background: black;
 }
 .header {
     background: dimgray;
@@ -152,9 +153,13 @@ body {
   margin: 10px;
   cursor: pointer;
   border-radius: 5px;
+  font-family: sans-serif;
+  padding-left: 10px;
+  color: navy;
 }
 .post:hover {
   border: 1px solid #95adbe;
+  width: 600px;
 }
 .add-comment, .delete {
     z-index: 2;
@@ -175,11 +180,6 @@ h1 {
 p {
   color: rgba(255,255,255,0.7);
   margin-left: 15px;
-}
-.post {
-  font-family: sans-serif;
-  padding-left: 10px;
-  color: navy;
 }
 .comment {
   font-family: sans-serif;
