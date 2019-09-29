@@ -33,8 +33,8 @@ which conveniently allowed us to make code changes on the fly, speeding up the p
 
 The basic approach was keeping the project simple, efficient and clean. We ended up taking a non-standard approach and tackled user authentication from the onset. This was quickly followed up with core CRUD functionality which consumed the majority of project resources as each successive implementation was met with its own distinct bugs. The last aspect of the project entailed formatting, styling and documentation of the project lifecycle.
 
-* User Stories/Wireframes
-  * [Pivitol tracker](https://www.pivotaltracker.com/n/projects/2400264)
+* [Pivitol tracker](https://www.pivotaltracker.com/n/projects/2400264)
+  * User Stories/Wireframes
 * [Timeline](https://github.com/gkopplin/redit/wiki/Timeline)
 * [Trello](https://trello.com/b/r4PQPK5U/redit)
   * individual task assignments
