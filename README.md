@@ -16,11 +16,11 @@ But more specifically it uses an entry point where relevant module webpacks are 
   
     npm install webpack-cli
     
-and 
+and
 
     npx webpack
     
-which conveniently allowed us to make changes on the fly speeding up the production cycle.
+which conveniently allowed us to make code changes on the fly, speeding up the production cycle.
 
  
 # Approach
