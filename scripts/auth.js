@@ -28,7 +28,7 @@ export default () => {
     email.setAttribute('placeholder','Enter a valid email');
     username.setAttribute('placeholder', 'Enter a username');
     password.setAttribute('placeholder', 'Enter a password');
-    // password.setAttribute('type', 'password');
+    password.setAttribute('type', 'password');
     close.innerHTML = '&#10060';
     close.onclick = () => {         //make function to call within onsubmit
         auth.style.visibility = "hidden";
