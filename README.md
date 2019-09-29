@@ -37,7 +37,7 @@ The basic approach was keeping the project simple, efficient and clean. We ended
   * [Pivitol tracker](https://www.pivotaltracker.com/n/projects/2400264)
 * [Timeline](https://github.com/gkopplin/redit/wiki/Timeline)
 * [Trello](https://trello.com/b/r4PQPK5U/redit)
-  * team assignment 
+  * individual task assignments
 ---
 * Authentication
   * **Top priority**
