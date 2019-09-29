@@ -24,6 +24,7 @@ export const signup = (username, email, password) => {
             let allLoggedIn = document.querySelectorAll('.logged-in');
             localStorage.setItem('auth_key', response.token);
             localStorage.setItem('username', response.username);
+            document.querySelector('.userid').innerHTML = response.username;
             document.querySelector('.auth').style.visibility = 'hidden'; //hide modal
 
             for (let item of allLoggedOut) {
