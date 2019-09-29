@@ -23,8 +23,7 @@ export default () => {
     password.className = 'password';
     submit.className = 'auth-submit';
 
-    // Prep elements
-    // title.innerHTML = 
+    // element attributes
     email.setAttribute('placeholder','Enter a valid email');
     username.setAttribute('placeholder', 'Enter a username');
     password.setAttribute('placeholder', 'Enter a password');

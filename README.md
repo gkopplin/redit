@@ -6,8 +6,8 @@ redit is a small slice of its namesake. The application has full functionality a
 # Technologies Implemented
 
   [Node Package Manager](https://www.npmjs.com) (npm)
-  
-  This tool is comprised of a registry database accessed via CLI. Npm is typically used in Node.js applications to download open-source libraries and simply running `npm install` will install all package.json dependencies. 
+
+  This tool is comprised of a registry database accessed via CLI. Npm is typically used in Node.js applications to download open-source libraries and simply running `npm install` will install all package.json dependencies.
 
 ---
 
@@ -47,5 +47,3 @@ The basic approach was keeping the project simple, efficient and clean. We ended
 * Bonus
   * Hash (url)
   
-  
-

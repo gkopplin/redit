@@ -19,7 +19,7 @@ export default (title, description, postId, username) => {
     delButton.classList.add('delete', 'logged-in', 'post-show', 'owned');
     addComment.classList.add('add-comment', 'post-show');
     commentArea.classList.add('comment-area', 'post-show');
-    form.classList.add('commForm', 'post-show');
+    form.classList.add('commForm', 'post-show', 'logged-in'); //added class to address log out bug
     author.className = 'author';
 
 
@@ -40,7 +40,7 @@ export default (title, description, postId, username) => {
     fetchComments(post, postId);
 
     window.scrollTo(0,0);
-    
+
     form.onsubmit = e => {
       e.preventDefault();
       postComment(commentArea.value, postId);
