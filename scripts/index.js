@@ -2,7 +2,7 @@ import {createHomepage} from './homepage.js';
 
 createHomepage();
 
-if (localStorage.getItem('auth_key')) {                           //fake inputs trigger logged in still and show undefined userID 
+if (localStorage.getItem('auth_key')) {                           
     let allLoggedOut = document.querySelectorAll('.logged-out');
     let allLoggedIn = document.querySelectorAll('.logged-in');
 

@@ -1,4 +1,4 @@
-import {deleteComment} from './api_crud'; 
+import {deleteComment} from './api_crud';
 
 export default (text, commentId, author) => {
     // Create elements
@@ -18,7 +18,7 @@ export default (text, commentId, author) => {
 
     // Append elements
     if (author === localStorage.getItem('username')) {
-        // use owned class?
+        
         comment.append(delButton);
     }
 
