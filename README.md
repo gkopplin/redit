@@ -31,7 +31,7 @@ The basic approach was keeping the project simple, efficient and clean...
   * [Pivitol tracker](https://www.pivotaltracker.com/n/projects/2400264)
   * [Wireframe](url linkhere)
 
-* Scheduled strict feature deadlines
+* [Timeline](https://github.com/gkopplin/redit/wiki/Timeline)
 * [Trello](https://trello.com/b/r4PQPK5U/redit) - individual assignments
 ---
 * Authentication
@@ -41,8 +41,5 @@ The basic approach was keeping the project simple, efficient and clean...
 * Layout/CSS
 * Bonus
   * Hash (url)
-
- 
- 
-
-[Timeline](https://github.com/gkopplin/redit/wiki/Timeline)
+  
+  
