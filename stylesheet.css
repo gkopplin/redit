@@ -32,16 +32,12 @@ body {
 .buttons {
   padding: 15px;
 }
-<<<<<<< HEAD
 
 button {
   cursor: pointer;
 }
 
-.login, .signup, .logout{
-=======
 .login, .signup, .logout, .create-button, .userid{
->>>>>>> df4e1a8f2a0641e71e8d2923bc50ef5b7e00aa80
     cursor: pointer;
     font-size: 14px;
     border-radius: 8px;
