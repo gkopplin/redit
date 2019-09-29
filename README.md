@@ -8,9 +8,11 @@
 <hr>
 <ul>
   <li><a href='https://webpack.js.org'>Webpacks</a></li>
-  * Webpack is tool used in JavaScript applications which uses a dependency graph to map your project files.
-  *But more specifically it uses an **entry point** where relevant module webpacks are determined. 
-  
+   <p>Webpack is tool used in JavaScript applications which uses a dependency graph to map your project files. 
+    But more specifically it uses an <b>entry point</b> where relevant module webpacks are determined and then the bundle is <b>output</b> to a specific location. Webpack runs on JavaScript and JSON but can utilize <b>loaders</b> for interoperability with other languages and frameworks.
+    ```
+     npm install --global webpack
+     ```
    <li></li>
    <li></li>
    <li></li>
