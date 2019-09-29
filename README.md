@@ -4,7 +4,6 @@ redit is a small slice of its namesake. The application has full functionality a
 
 
 # Technologies Implemented
---
 
   [WebPacks](https://webpack.js.org)
   
@@ -30,10 +29,10 @@ The basic approach was keeping the project simple, efficient and clean...
 
 * User Stories/Wireframes
   * [Pivitol tracker](https://www.pivotaltracker.com/n/projects/2400264)
-  * [Wireframe - link here](url linkhere)
+  * [Wireframe](url linkhere)
 
 * Scheduled strict feature deadlines
-* [Trello](https://trello.com/b/r4PQPK5U/redit) for individual assignments
+* [Trello](https://trello.com/b/r4PQPK5U/redit) - individual assignments
 ---
 * Authentication
   * **Top priority**
