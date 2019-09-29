@@ -28,6 +28,7 @@ export default () => {
     email.setAttribute('placeholder','Enter a valid email');
     username.setAttribute('placeholder', 'Enter a username');
     password.setAttribute('placeholder', 'Enter a password');
+    // password.setAttribute('type', 'password');
     close.innerHTML = '&#10060';
     close.onclick = () => {         //make function to call within onsubmit
         auth.style.visibility = "hidden";
@@ -38,7 +39,7 @@ export default () => {
     //in progress/clean up later!
     form.onsubmit = e => {
       e.preventDefault();
-        if(auth.firstChild.firstChild.children[3].innerText === 'Log in') {
+        if(document.querySelector('.auth-submit').innerText === 'Log in') {
           login(email.value, password.value);
         } else {
           signup(username.value, email.value, password.value);
