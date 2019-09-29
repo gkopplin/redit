@@ -1,14 +1,14 @@
 html {
-  /* overflow: hidden; */   /* prevents selecting post from pulling to top of page*/
+  /* overflow: hidden;   /* prevents selecting post from pulling to top of page*/ */
   overscroll-behavior: none;  /*solution, removes scroll bounce*/
   height: 100%;
 }
 
 body {
     margin: 0;
-    /* overflow: auto; */
+    overflow: auto;
     overscroll-behavior: none;
-    height: 100%;
+    height: 150%;
 }
 
 .header {
