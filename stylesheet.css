@@ -35,6 +35,17 @@ body {
 .login, .signup, .logout{
     cursor: pointer;
 }
+.form {
+  align-self: center;
+}
+.email {
+  margin: 20px 4px 0 4px;
+  width: 180px;
+}
+.password {
+  margin: 20px 4px 0 4px;
+  width: 100px;
+}
 
 .modal {
   display: inline-flex;
@@ -52,7 +63,8 @@ body {
 .post-content, .auth-content {
   background: white;
   margin: 15% auto;
-  width: 80%;
+  width: 70%;
+  height: 30%;
 }
 .close {
   float: right;
