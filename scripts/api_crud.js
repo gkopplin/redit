@@ -30,7 +30,6 @@ export const createPost = (title, description) => {
         .catch(err => console.log(err));
 };
 
-//API endpoint is broken
 export const deletePost = (postId) => {
   fetch(`http://thesi.generalassemb.ly:8080/post/${postId}`, {
       method: 'DELETE',
@@ -55,16 +54,14 @@ export const fetchPosts = () => {
   })
       .then(response => response.json())
       .then(response => {
-        // for(let postItem of response) {    //working pull for entire api
         for (let i = 0; i < 10; i++) {
           const post = createPostItem(response[i].title, response[i].description, response[i].id, response[i].user.username);
-          // const post = createPostItem(postItem.title, postItem.description, postItem.id, postItem.user.username);    //working pull for api
           document.querySelector('.homepage').append(post);
       }
       })
       .catch(err => console.log(err));
 };
-
+//called in post.js
 export const fetchComments = (post, postId) => {
   fetch(`http://thesi.generalassemb.ly:8080/post/${postId}/comment`, {
       method: 'GET',
@@ -85,13 +82,13 @@ export const fetchComments = (post, postId) => {
           const comment = createComment(response[i].text, response[i].id, response[i].user.username);
           commentList.append(comment);
         }
-        
+
         post.append(commentList);
       })
       .catch(err => console.log(err));
 
 };
-
+//called in post.js
 export const postComment = (text, postId) => {
   fetch(`http://thesi.generalassemb.ly:8080/comment/${postId}`, {
       method: 'POST',
@@ -106,12 +103,12 @@ export const postComment = (text, postId) => {
       .then(response => response.json())
       .then(response => {
           const commentList = document.querySelector('.comment-list');
-          const commented = createComment(response.text);   // return a comment
-          commentList.append(commented);                    //append to curr ul
+          const commented = createComment(response.text);
+          commentList.append(commented);
       })
       .catch(err => console.log(err));
 };
-
+//used to implement hash
 export const fetchPostbyId = (hash) => {
     fetch('http://thesi.generalassemb.ly:8080/post/list', {
         method: 'GET',
@@ -145,7 +142,7 @@ export const fetchPostbyId = (hash) => {
             }
 
             // refactor this to a function
-            if (localStorage.getItem('auth_key')) {                           //fake inputs trigger logged in still and show undefined userID
+            if (localStorage.getItem('auth_key')) {
                 let allLoggedOut = document.querySelectorAll('.logged-out');
                 let allLoggedIn = document.querySelectorAll('.logged-in');
 

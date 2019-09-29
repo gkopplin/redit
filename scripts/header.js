@@ -91,7 +91,7 @@ export default () => {
         }
         homepage.append(header);
 
-        if (localStorage.getItem('auth_key')) {                           //fake inputs trigger logged in still and show undefined userID
+        if (localStorage.getItem('auth_key')) {
             let allLoggedOut = document.querySelectorAll('.logged-out');
             let allLoggedIn = document.querySelectorAll('.logged-in');
 
@@ -105,11 +105,11 @@ export default () => {
 
         fetchPosts();
     };
-
+    //resets hash when click on site logo
     logo.onclick = () => {
       window.location.hash = '';
     };
-
+    //hash funct for back button use
     window.onhashchange = () => {
       if (window.location.hash.length === 0) {
         refresh();
