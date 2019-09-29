@@ -6,23 +6,23 @@ redit is a small slice of its namesake. The application has full functionality a
 # Technologies Implemented
 
   [WebPacks](https://webpack.js.org)
-  
-  Webpack is a tool used in JavaScript applications which uses a dependency graph to map your project files. 
+
+  Webpack is a tool used in JavaScript applications which uses a dependency graph to map your project files.
 But more specifically it uses an entry point where relevant module webpacks are automatically determined. Webpack runs on JavaScript and JSON but can utilize loaders for interoperability with other languages. Installation is as easy as typing
-    
+
      npm install --global webpack
-     
-  into the CLI. Along these same lines we ended up altering the config file, adding a key:value of watch:true, then 
-  
+
+  into the CLI. Along these same lines we ended up altering the config file, adding a key:value of watch:true, then
+
     npm install webpack-cli
-    
-and 
+
+and
 
     npx webpack
-    
-which conveniently allowed us to make changes on the fly speeding up the production cycle.
 
- 
+which conveniently allowed us to make code changes on the fly, speeding up the production cycle.
+
+
 # Approach
 
 The basic approach was keeping the project simple, efficient and clean...
@@ -37,9 +37,7 @@ The basic approach was keeping the project simple, efficient and clean...
 * Authentication
   * **Top priority**
   * localStorage for session control
-* CRUD 
+* CRUD
 * Layout/CSS
 * Bonus
   * Hash (url)
-  
-  
