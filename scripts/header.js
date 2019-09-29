@@ -56,12 +56,14 @@ export default () => {
 
     function openModal(buttonClicked) {
       authModal.style.visibility = 'initial';
-      authModal.firstChild.firstChild.children[3].innerText = buttonClicked;
-        if(buttonClicked === 'Log in') {
-          authModal.firstChild.firstChild.children[0].style.display = 'none';
-        } else {
-          authModal.firstChild.firstChild.children[0].style.display = 'inline';
-        }
+      document.querySelector('.auth-title').innerHTML = buttonClicked;
+
+      document.querySelector('.auth-submit').innerText = buttonClicked;
+      if(buttonClicked === 'Log in') {
+        document.querySelector('.username').style.display = 'none';
+      } else {
+        document.querySelector('.username').style.display = 'inline';
+      }
     }
     login.onclick = () => openModal('Log in');
     signup.onclick = () => openModal('Sign up');

@@ -4,6 +4,7 @@ export default () => {
     // Create elements
     const auth = document.createElement('div');
     const content = document.createElement('div');
+    const title = document.createElement('h1');
     const form = document.createElement('form');
     const email = document.createElement('input');
     const username = document.createElement('input');
@@ -14,15 +15,17 @@ export default () => {
     // Add classnames
     auth.classList.add('modal', 'auth');
     content.className = 'auth-content';
+    title.className = 'auth-title';
     form.className = 'form';
     close.className = 'close';
     email.className = 'email';
     username.className = 'username';
     password.className = 'password';
-    submit.className = 'submit';
+    submit.className = 'auth-submit';
 
     // Prep elements
-    email.setAttribute('placeholder','Enter a valid email address');
+    // title.innerHTML = 
+    email.setAttribute('placeholder','Enter a valid email');
     username.setAttribute('placeholder', 'Enter a username');
     password.setAttribute('placeholder', 'Enter a password');
     close.innerHTML = '&#10060';
@@ -47,14 +50,15 @@ export default () => {
     };
 
     submit.setAttribute('type', 'submit');
-    submit.innerText = 'Submit';
+    submit.innerText = 'submit';
 
     // Append elements
-    form.append(username);
+    content.append(close);
+    content.append(title);
     form.append(email);
+    form.append(username);
     form.append(password);
     form.append(submit);
-    form.append(close);
     content.append(form);
     auth.append(content);
 

@@ -1,5 +1,5 @@
 html {
-  /* overflow: hidden;   /* prevents selecting post from pulling to top of page*/ */
+  /* overflow: hidden;   /* prevents selecting post from pulling to top of page*/ 
   overscroll-behavior: none;  /*solution, removes scroll bounce*/
   height: 100%;
 }
@@ -39,15 +39,36 @@ body {
 }
 .form {
   align-self: center;
+  margin-left: 15px;
+  display: flex;
+  flex-direction: column;
+  width: 20%;
 }
-.email {
-  margin: 20px 4px 0 4px;
-  width: 180px;
+
+.form > input {
+  font-size: 80%;
+  margin: 20px 4px 0 0;
+  width: 110px;
+  padding: 3px;
 }
-.password {
-  margin: 20px 4px 0 4px;
-  width: 100px;
+
+.form > input:first-child {
+  margin-top: 0px;
 }
+
+.auth-submit, .post-submit {
+  margin: 20px 0 20px 0;
+  background:rgb(53, 125, 250);
+  border-radius: 5px;
+  color: white;
+  padding: 2px;
+  cursor: pointer;
+}
+
+.auth-submit:hover, .post-submit:hover {
+  background: rgb(35, 84, 167);
+}
+
 
 .modal {
   display: inline-flex;
@@ -65,9 +86,13 @@ body {
 .post-content, .auth-content {
   background: white;
   margin: 15% auto;
-  width: 70%;
-  height: 30%;
+  width: 30%;
+  height: fit-content;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 1px 1px 3px 3px rgba(53, 125, 250, 0.6);
 }
+
 .close {
   float: right;
   cursor: pointer;
