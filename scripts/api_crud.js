@@ -124,7 +124,10 @@ export const fetchPostbyId = (hash) => {
             const postId = parseInt(hash.split('/')[1]);
             const postResponse = response.filter(el => el.id === postId)[0];
             const post = createPostItem(postResponse.title, postResponse.description, postResponse.id, postResponse.user.username);
-
+            post.onmouseenter = () => {
+                post.style.width = '500px';
+                post.style.border = 'none';
+            };
             const homepage = document.querySelector('.homepage');
             const header = homepage.firstChild;
             while (homepage.firstChild) {
@@ -140,7 +143,6 @@ export const fetchPostbyId = (hash) => {
                     item.style.display = 'inline';
                 }
             }
-
 
             // refactor this to a function
             if (localStorage.getItem('auth_key')) {                           //fake inputs trigger logged in still and show undefined userID

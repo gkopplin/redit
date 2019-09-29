@@ -2,6 +2,7 @@ html {
   /* overflow: hidden;   /* prevents selecting post from pulling to top of page*/
   overscroll-behavior: none;  /*solution, removes scroll bounce*/
   height: 100%;
+  font-family: 'Raleway', sans-serif;
 }
 body {
     margin: 0;
@@ -21,7 +22,7 @@ body {
     border: 2px solid rgba(0,0,0,0.3);
 }
 .homepage {
-    margin: 50px 0 0 0;
+    margin: 60px 0 0 0;
     background: black;
     height: 100em;
     display: flex;
@@ -32,34 +33,36 @@ body {
 .buttons {
   padding: 15px;
 }
+
 .login, .signup, .logout, .create-button, .userid{
     cursor: pointer;
     font-size: 14px;
     border-radius: 8px;
     margin-right: 8px;
+    margin-top: 0px;
 }
 .userid {
   font-size: 22px;
-  color: #145374;
+  color: #07467b;
 }
 .login {
-  color: #2f89fc;
+  color: #07467b;
   background: ivory;
-  border: 2px solid #2f89fc;
+  border: 2px solid #07467b;
 }
 .login:hover {
   color: ivory;
-  background: #2f89fc;
+  background: #07467b;
 }
 .signup {
   color: ivory;
-  background: #2f89fc;
+  background: #07467b;
   border: 2px solid ivory;
 }
 .signup:hover {
-  color: #2f89fc;
+  color: #07467b;
   background: ivory;
-  border: 2px solid #2f89fc;
+  border: 2px solid #07467b;
 }
 .logout {
   color: #ed3833;
@@ -71,13 +74,13 @@ body {
   background: #ed3833;
 }
 .create-button {
-  color: #005542;
+  color: #07467b;
   background: ivory;
-  border: 2px solid #005542;
+  border: 2px solid #07467b;
 }
 .create-button:hover {
   color: ivory;
-  background: #005542;
+  background: #07467b;
 }
 /* --------------------- */
 
@@ -100,14 +103,14 @@ body {
   margin-top: 0px;
 }
 
-
-.auth-submit, .post-submit {
+/* .auth-submit, .post-submit { */
+button {
+  cursor: pointer;
   margin: 20px 0 20px 0;
-  background:rgb(53, 125, 250);
+  background:#07467b;
   border-radius: 5px;
   color: white;
   padding: 2px;
-  cursor: pointer;
 }
 
 .auth-submit:hover, .post-submit:hover {
@@ -138,13 +141,15 @@ body {
   float: right;
   cursor: pointer;
 }
+
 .logged {
   display: none;
   padding: 10px;
 }
 .description {
-    width: 80%;
-    height: 50%;
+    margin: 20px 0 10px 0;
+    width: 400%;
+    min-height: 100px;
 }
 .post {
   background: dimgrey;
@@ -153,35 +158,44 @@ body {
   margin: 10px;
   cursor: pointer;
   border-radius: 5px;
-  font-family: sans-serif;
-  padding-left: 10px;
-  color: navy;
+  padding: 10px;
+  color: #07467b;
 }
 .post:hover {
   border: 1px solid #95adbe;
-  width: 600px;
+  width: 510px;
 }
 .add-comment, .delete {
-    z-index: 2;
+    margin: 0 0 0 10px;
+
 }
 .logo {
   cursor: pointer;
-  width: 156px;
+  width: 115px;
+  margin: 8px 0px 8px 15px;
 }
 .comment-area {
-  width: 100px;
-  height: 40px;
+  width:  30%;
+  min-height: 40px;
+  margin-left: 15px;
+  background: rgb(94, 94, 94);
+  color: rgba(220,220,220,0.7);
 }
+
+.comment-area::placeholder {
+  color: rgba(220,220,220,0.7);
+}
+
 h1 {
   color: rgba(0,0,0,0.7);
-  font-style: oblique;
-  margin-left: 15px;
+  margin: 12px;
 }
 p {
-  color: rgba(255,255,255,0.7);
+  color: rgba(220, 220, 220, 0.7);
   margin-left: 15px;
 }
 .comment {
   font-family: sans-serif;
-  color: rgba(255,255,255,0.4);
+  color: rgba(220,220,220,0.7);
 }
+
