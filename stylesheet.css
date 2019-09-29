@@ -39,6 +39,7 @@ body {
 }
 .form {
   align-self: center;
+  width
 }
 .email {
   margin: 20px 4px 0 4px;
@@ -65,8 +66,8 @@ body {
 .post-content, .auth-content {
   background: white;
   margin: 15% auto;
-  width: 70%;
-  height: 30%;
+  width: auto;
+  height: fit-content;
 }
 .close {
   float: right;
