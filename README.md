@@ -5,6 +5,12 @@ redit is a small slice of its namesake. The application has full functionality a
 
 # Technologies Implemented
 
+  [Node Package Manager](https://www.npmjs.com) (npm)
+  
+  This tool is comprised of a registry database accessed via CLI. Npm is typically used in Node.js applications to download open-source libraries and simply running `npm install` will install all package.json dependencies. 
+
+---
+
   [WebPacks](https://webpack.js.org)
 
   Webpack is a tool used in JavaScript applications which uses a dependency graph to map your project files.
@@ -25,14 +31,13 @@ which conveniently allowed us to make code changes on the fly, speeding up the p
 
 # Approach
 
-The basic approach was keeping the project simple, efficient and clean...
+The basic approach was keeping the project simple, efficient and clean. We ended up taking a non-standard approach and tackled user authentication from the onset. This was quickly followed up with core CRUD functionality which consumed the majority of project resources as each successive implementation was met with its own distinct bugs. The last aspect of the project entailed formatting, styling and documentation of the project lifecycle.
 
 * User Stories/Wireframes
   * [Pivitol tracker](https://www.pivotaltracker.com/n/projects/2400264)
-  * [Wireframe](url linkhere)
-
 * [Timeline](https://github.com/gkopplin/redit/wiki/Timeline)
-* [Trello](https://trello.com/b/r4PQPK5U/redit) - individual assignments
+* [Trello](https://trello.com/b/r4PQPK5U/redit)
+  * team assignment 
 ---
 * Authentication
   * **Top priority**
@@ -41,3 +46,5 @@ The basic approach was keeping the project simple, efficient and clean...
 * Layout/CSS
 * Bonus
   * Hash (url)
+  
+  
