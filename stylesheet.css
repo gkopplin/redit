@@ -1,16 +1,15 @@
 html {
-  /* overflow: hidden;   /* prevents selecting post from pulling to top of page*/ 
+  /* overflow: hidden;   /* prevents selecting post from pulling to top of page*/
   overscroll-behavior: none;  /*solution, removes scroll bounce*/
   height: 100%;
 }
-
 body {
     margin: 0;
     overflow: auto;
     overscroll-behavior: none;
-    height: 150%;
+    height: 100%;
+    background: black;
 }
-
 .header {
     background: dimgray;
     top: 0%;
@@ -19,8 +18,8 @@ body {
     position: fixed;
     display: flex;
     justify-content: space-between;
+    border: 2px solid rgba(0,0,0,0.3);
 }
-
 .homepage {
     margin: 50px 0 0 0;
     background: black;
@@ -29,18 +28,68 @@ body {
     flex-direction: column;
     align-items: center;
 }
-
+/*Buttons Section*/
 .buttons {
   padding: 15px;
 }
+<<<<<<< HEAD
 
 button {
   cursor: pointer;
 }
 
 .login, .signup, .logout{
+=======
+.login, .signup, .logout, .create-button, .userid{
+>>>>>>> df4e1a8f2a0641e71e8d2923bc50ef5b7e00aa80
     cursor: pointer;
+    font-size: 14px;
+    border-radius: 8px;
+    margin-right: 8px;
 }
+.userid {
+  font-size: 22px;
+  color: #145374;
+}
+.login {
+  color: #2f89fc;
+  background: ivory;
+  border: 2px solid #2f89fc;
+}
+.login:hover {
+  color: ivory;
+  background: #2f89fc;
+}
+.signup {
+  color: ivory;
+  background: #2f89fc;
+  border: 2px solid ivory;
+}
+.signup:hover {
+  color: #2f89fc;
+  background: ivory;
+  border: 2px solid #2f89fc;
+}
+.logout {
+  color: #ed3833;
+  background: ivory;
+  border: 2px solid #ed3833;
+}
+.logout:hover {
+  color: ivory;
+  background: #ed3833;
+}
+.create-button {
+  color: #005542;
+  background: ivory;
+  border: 2px solid #005542;
+}
+.create-button:hover {
+  color: ivory;
+  background: #005542;
+}
+/* --------------------- */
+
 .form {
   align-self: center;
   margin-left: 15px;
@@ -60,6 +109,7 @@ button {
   margin-top: 0px;
 }
 
+
 .auth-submit, .post-submit {
   margin: 20px 0 20px 0;
   background:rgb(53, 125, 250);
@@ -71,8 +121,6 @@ button {
 .auth-submit:hover, .post-submit:hover {
   background: rgb(35, 84, 167);
 }
-
-
 .modal {
   display: inline-flex;
   visibility: hidden;
@@ -84,8 +132,6 @@ button {
   width: 100%;
   height: 100%;
 }
-
-
 .post-content, .auth-content {
   background: white;
   margin: 15% auto;
@@ -103,8 +149,8 @@ button {
 
 .logged {
   display: none;
+  padding: 10px;
 }
-
 .description {
     margin: 20px 0 10px 0;
     width: 400%;
@@ -112,34 +158,40 @@ button {
 }
 .post {
   background: dimgrey;
-  width: 70%;
+  width: 500px;
   height: fit-content;
   margin: 10px;
   cursor: pointer;
   border-radius: 5px;
+  font-family: sans-serif;
+  padding-left: 10px;
+  color: navy;
 }
-.post-content {
-  min-width: 300px;
-  min-height: 200px;
-  max-width: 400px;
-  max-height: 300px;
+.post:hover {
+  border: 1px solid #95adbe;
+  width: 600px;
 }
-
 .add-comment, .delete {
     z-index: 2;
 }
-
 .logo {
   cursor: pointer;
   width: 156px;
-  border-radius: 20px;
-  text-align:left;
 }
 .comment-area {
   width: 100px;
   height: 40px;
 }
-h1, p {
+h1 {
+  color: rgba(0,0,0,0.7);
+  font-style: oblique;
   margin-left: 15px;
 }
-
+p {
+  color: rgba(255,255,255,0.7);
+  margin-left: 15px;
+}
+.comment {
+  font-family: sans-serif;
+  color: rgba(255,255,255,0.4);
+}
