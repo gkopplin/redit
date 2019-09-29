@@ -5,6 +5,7 @@ export default () => {
     const createPostModal = document.createElement('div');
     const content = document.createElement('div');
     const form = document.createElement('form');
+    const formTitle = document.createElement('h1');
     const title = document.createElement('input');
     const description = document.createElement('textarea');
     const submit = document.createElement('button');
@@ -13,11 +14,12 @@ export default () => {
     // Add classnames
     createPostModal.classList.add('modal', 'create-post');
     content.className = 'post-content';
+    formTitle.className = 'title';
     form.className = 'form';
     close.className = 'close';
     title.className = 'title';
     description.className = 'description';
-    submit.className = 'submit';
+    submit.className = 'post-submit';
 
     // Prep elements
     title.setAttribute('placeholder', 'Post title');
@@ -25,6 +27,7 @@ export default () => {
     submit.innerHTML = 'Submit';
     close.innerHTML = '&#10060';
     createPostModal.style.visibility = 'hidden';
+    formTitle.innerHTML = 'Create a new post';
 
     //in progress/clean up later!
     form.onsubmit = e => {
@@ -47,7 +50,8 @@ export default () => {
     form.append(title);
     form.append(description);
     form.append(submit);
-    form.append(close);
+    content.append(close);
+    content.append(formTitle);
     content.append(form);
     createPostModal.append(content);
 
