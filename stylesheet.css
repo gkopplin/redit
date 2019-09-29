@@ -86,11 +86,16 @@ body {
 .post-content, .auth-content {
   background: white;
   margin: 15% auto;
+<<<<<<< HEAD
   width: 30%;
   height: fit-content;
   border-radius: 5px;
   padding: 10px;
   box-shadow: 1px 1px 3px 3px rgba(53, 125, 250, 0.6);
+=======
+  width: auto;
+  height: fit-content;
+>>>>>>> 9061a168888f0352bd729afcc444354a98c9f74b
 }
 
 .close {
