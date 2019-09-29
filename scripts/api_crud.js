@@ -85,7 +85,7 @@ export const fetchComments = (post, postId) => {
           const comment = createComment(response[i].text, response[i].id, response[i].user.username);
           commentList.append(comment);
         }
-        console.log(response);
+        
         post.append(commentList);
       })
       .catch(err => console.log(err));
@@ -133,6 +133,13 @@ export const fetchPostbyId = (hash) => {
 
             homepage.append(header);
             homepage.append(post);
+
+            const postShow = document.querySelectorAll('.post-show');
+            if (localStorage.getItem('auth_key')) {
+                for (let item of postShow) {
+                    item.style.display = 'inline';
+                }
+            }
 
 
             // refactor this to a function

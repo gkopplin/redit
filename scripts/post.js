@@ -17,9 +17,9 @@ export default (title, description, postId, username) => {
     postTitle.className = 'title';
     body.className = 'body';
     delButton.classList.add('delete', 'logged-in', 'post-show', 'owned');
-    addComment.classList.add('add-comment', 'logged-in', 'post-show');
-    commentArea.classList.add('comment-area', 'logged-in', 'post-show');
-    form.classList.add('commForm', 'logged-in', 'post-show');
+    addComment.classList.add('add-comment', 'post-show');
+    commentArea.classList.add('comment-area', 'post-show');
+    form.classList.add('commForm', 'post-show');
     author.className = 'author';
 
 
