@@ -3,7 +3,7 @@
 redit is a small slice of its namesake. The application has full functionality affording users the ability to interact with the entire redit community by creating unqiue posts and leaving/receiving peer feedback.
 
 
-Technologies Implemented
+# Technologies Implemented
 --
 
   [WebPacks](https://webpack.js.org)
@@ -24,8 +24,24 @@ and
 which conveniently allowed us to make changes on the fly speeding up the production cycle.
 
  
-Approach
---
+# Approach
+
+The basic approach was keeping the project simple, efficient and clean...
+
+* User Stories/Wireframes
+  * [Pivitol tracker](https://www.pivotaltracker.com/n/projects/2400264)
+  * [Wireframe - link here](url linkhere)
+
+* Scheduled strict feature deadlines
+* [Trello](https://trello.com/b/r4PQPK5U/redit) for individual assignments
+---
+* Authentication
+  * **Top priority**
+  * localStorage for session control
+* CRUD 
+* Layout/CSS
+* Bonus
+  * Hash (url)
 
  
  
