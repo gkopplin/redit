@@ -34,6 +34,8 @@ body {
   padding: 15px;
 }
 
+
+
 .login, .signup, .logout, .create-button, .userid{
     cursor: pointer;
     font-size: 14px;
@@ -81,6 +83,8 @@ body {
   color: ivory;
   background: #005542;
 }
+
+
 .form {
   align-self: center;
 }
@@ -134,15 +138,9 @@ body {
   border-radius: 5px;
 }
 .post:hover {
-  /* border: 1px solid ivory; */
-  background: #95adbe;
+  border: 1px solid #95adbe;
 }
-/* .post-content {    //unnecessary
-  min-width: 300px;
-  min-height: 200px;
-  max-width: 400px;
-  max-height: 300px;
-} */
+
 
 .add-comment, .delete {
     z-index: 2;
@@ -151,8 +149,6 @@ body {
 .logo {
   cursor: pointer;
   width: 156px;
-  border-radius: 20px;
-  text-align:left;
 }
 .comment-area {
   width: 100px;
