@@ -1,5 +1,5 @@
 html {
-  /* overflow: hidden;   /* prevents selecting post from pulling to top of page*/ 
+  /* overflow: hidden;   /* prevents selecting post from pulling to top of page*/
   overscroll-behavior: none;  /*solution, removes scroll bounce*/
   height: 100%;
 }
@@ -82,13 +82,10 @@ body {
 
 .form {
   align-self: center;
-<<<<<<< HEAD
-=======
   margin-left: 15px;
   display: flex;
   flex-direction: column;
   width: 20%;
->>>>>>> fc1d8ea2be1a5771e42b20b0c85bdf0658557ad9
 }
 
 .form > input {
@@ -101,8 +98,7 @@ body {
 .form > input:first-child {
   margin-top: 0px;
 }
-<<<<<<< HEAD
-=======
+
 
 .auth-submit, .post-submit {
   margin: 20px 0 20px 0;
@@ -116,9 +112,6 @@ body {
 .auth-submit:hover, .post-submit:hover {
   background: rgb(35, 84, 167);
 }
-
-
->>>>>>> fc1d8ea2be1a5771e42b20b0c85bdf0658557ad9
 .modal {
   display: inline-flex;
   visibility: hidden;
@@ -174,6 +167,21 @@ body {
   width: 100px;
   height: 40px;
 }
-h1, p {
+h1 {
+  color: rgba(0,0,0,0.7);
+  font-style: oblique;
   margin-left: 15px;
+}
+p {
+  color: rgba(255,255,255,0.7);
+  margin-left: 15px;
+}
+.post {
+  font-family: sans-serif;
+  padding-left: 10px;
+  color: navy;
+}
+.comment {
+  font-family: sans-serif;
+  color: rgba(255,255,255,0.4);
 }
