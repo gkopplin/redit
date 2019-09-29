@@ -1,13 +1,11 @@
 <img src='https://i.imgur.com/wUsFUAS.png'></img>
 
-<hr>
-<h2></h2>
-<p>redit is a small slice of its namesake. The application has full functionality affording users the ability to interact with the entire redit community by creating unqiue posts and leaving/receiving peer feedback. </p>
-<br />
-<h2>Technologies Implemented</h2>
-<hr>
-<ul>
-  <li><a href='https://webpack.js.org'>Webpacks</a></li>
+
+redit is a small slice of its namesake. The application has full functionality affording users the ability to interact with the entire redit community by creating unqiue posts and leaving/receiving peer feedback.
+
+Technologies Implemented
+
+  [WebPacks]('https://webpack.js.org')
    <p>Webpack is tool used in JavaScript applications which uses a dependency graph to map your project files. 
     But more specifically it uses an <b>entry point</b> where relevant module webpacks are determined and then the bundle is <b>output</b> to a specific location. Webpack runs on JavaScript and JSON but can utilize <b>loaders</b> for interoperability with other languages and frameworks.
     ```
