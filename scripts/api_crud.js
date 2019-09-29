@@ -55,10 +55,10 @@ export const fetchPosts = () => {
   })
       .then(response => response.json())
       .then(response => {
-        // for(let postItems in response) {
+        // for(let postItem of response) {    //working pull for entire api
         for (let i = 0; i < 10; i++) {
           const post = createPostItem(response[i].title, response[i].description, response[i].id, response[i].user.username);
-
+          // const post = createPostItem(postItem.title, postItem.description, postItem.id, postItem.user.username);    //working pull for api
           document.querySelector('.homepage').append(post);
       }
       })
@@ -76,7 +76,7 @@ export const fetchComments = (post, postId) => {
       .then(response => {
        const commentList = document.createElement('ul');
        commentList.classList.add('comment-list', 'post-show');
-       if (localStorage.getItem('auth_key') === null || window.location.hash.length === 0) {
+       if (window.location.hash.length === 0) {    //this seemed to address ALL users able to see comments/not affect logged in
            commentList.style.display = 'none';
        }
 
@@ -132,10 +132,8 @@ export const fetchPostbyId = (hash) => {
             }
 
             homepage.append(header);
-
-            // window.scrollTo(0, 0);
-
             homepage.append(post);
+
 
             // refactor this to a function
             if (localStorage.getItem('auth_key')) {                           //fake inputs trigger logged in still and show undefined userID

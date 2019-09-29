@@ -39,6 +39,8 @@ export default (title, description, postId, username) => {
 
     fetchComments(post, postId);
 
+    window.scrollTo(0,0);
+    
     form.onsubmit = e => {
       e.preventDefault();
       postComment(commentArea.value, postId);
