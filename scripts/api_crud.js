@@ -78,8 +78,7 @@ export const fetchComments = (post, postId) => {
        }
 
         for (let i = 0; i < response.length; i++) {
-        //   add commenter username
-          const comment = createComment(response[i].text, response[i].id, response[i].user.username);
+          const comment = createComment(response[i].text, response[i].id, response[i].user.username, localStorage.getItem('username'));
           commentList.append(comment);
         }
 

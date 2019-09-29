@@ -1,6 +1,6 @@
 import {deleteComment} from './api_crud';
 
-export default (text, commentId, author) => {
+export default (text, commentId, author, currentUser) => {
     // Create elements
     const comment = document.createElement('li');
     const delButton = document.createElement('button');
@@ -17,7 +17,7 @@ export default (text, commentId, author) => {
     delButton.onclick = () => deleteComment(commentId, comment);
 
     // Append elements
-    if (author === localStorage.getItem('username')) {
+    if (author === currentUser) {
         
         comment.append(delButton);
     }

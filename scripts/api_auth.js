@@ -33,6 +33,14 @@ export const signup = (username, email, password) => {
             for (let item of allLoggedIn) {
             item.style.display = 'inline';
             }
+
+            const refreshPosts = document.querySelectorAll('.post');
+            let removeMe = document.querySelector('.comment-list');
+            removeMe.remove();
+            //sign up event refreshes to all posts
+            for (let posts of refreshPosts) {
+                posts.style.display = 'inline';
+            }
         }
     })
     .catch(err => console.log(err));
@@ -58,12 +66,12 @@ export const login = (email, password) => {
                 error.className = 'auth-error';
                 document.querySelector('.auth-content').append(error);
             } else {
-
                 let allLoggedOut = document.querySelectorAll('.logged-out');
                 let allLoggedIn = document.querySelectorAll('.logged-in');
                 document.querySelector('.auth').style.visibility = 'hidden'; //hide modal
                 localStorage.setItem('auth_key', response.token);
                 localStorage.setItem('username', response.username);
+
               //toggles user access when logged-in
                 for (let item of allLoggedOut) {
                 item.style.display = "none";
