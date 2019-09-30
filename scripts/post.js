@@ -1,4 +1,4 @@
-import { deletePost, fetchComments, postComment } from './api_crud.js';
+import { fetchComments, postComment } from './api_crud.js';
 
 export default (title, description, postId, username) => {
 

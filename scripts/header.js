@@ -1,7 +1,7 @@
 import createAuthModal from './auth.js';
 import createPost from './create_post';
-import { fetchPosts, fetchPostbyId } from './api_crud.js';
-import createHeader from './header';
+import { fetchPostbyId } from './api_crud.js';
+import refresh from './refresh_util';
 
 export default () => {
 
@@ -85,27 +85,7 @@ export default () => {
     };
     logout.onclick = logOut;
 
-    const refresh = () => {
-        const homepage = document.querySelector('.homepage');
-        while (homepage.firstChild) {
-            homepage.removeChild(homepage.firstChild);
-        }
-        homepage.append(header);
-
-        if (localStorage.getItem('auth_key')) {
-            let allLoggedOut = document.querySelectorAll('.logged-out');
-            let allLoggedIn = document.querySelectorAll('.logged-in');
-
-            for (let item of allLoggedOut) {
-                item.style.display = "none";
-            }
-            for (let item of allLoggedIn) {
-                item.style.display = 'inline';
-            }
-        }
-
-        fetchPosts();
-    };
+    
     //resets hash when click on site logo
     logo.onclick = () => {
       window.location.hash = '';

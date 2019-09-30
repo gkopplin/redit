@@ -1,4 +1,7 @@
 
+import refresh from './refresh_util';
+import {fetchPostbyId} from './api_crud';
+
 export const signup = (username, email, password) => {
     fetch('http://thesi.generalassemb.ly:8080/signup', {
         method: 'POST',
@@ -20,27 +23,31 @@ export const signup = (username, email, password) => {
             error.innerHTML = response.httpStatus === "BAD_REQUEST" ? "Credentials invalid" : response.httpStatus;
             document.querySelector('.auth-content').append(error);
         } else {
-            let allLoggedOut = document.querySelectorAll('.logged-out');
-            let allLoggedIn = document.querySelectorAll('.logged-in');
             localStorage.setItem('auth_key', response.token);
             localStorage.setItem('username', response.username);
             document.querySelector('.userid').innerHTML = response.username;
             document.querySelector('.auth').style.visibility = 'hidden'; //hide modal
 
-            for (let item of allLoggedOut) {
-            item.style.display = "none";
-            }
-            for (let item of allLoggedIn) {
-            item.style.display = 'inline';
+            if (window.location.hash.length === 0) {
+                refresh();
+            } else {
+                fetchPostbyId(window.location.hash);
             }
 
-            const refreshPosts = document.querySelectorAll('.post');
-            let removeMe = document.querySelector('.comment-list');
-            removeMe.remove();
-            //sign up event refreshes to all posts
-            for (let posts of refreshPosts) {
-                posts.style.display = 'inline';
-            }
+            // for (let item of allLoggedOut) {
+            // item.style.display = "none";
+            // }
+            // for (let item of allLoggedIn) {
+            // item.style.display = 'inline';
+            // }
+
+            // const refreshPosts = document.querySelectorAll('.post');
+            // let removeMe = document.querySelector('.comment-list');
+            // removeMe.remove();
+            // //sign up event refreshes to all posts
+            // for (let posts of refreshPosts) {
+            //     posts.style.display = 'inline';
+            // }
         }
     })
     .catch(err => console.log(err));
@@ -66,29 +73,34 @@ export const login = (email, password) => {
                 error.className = 'auth-error';
                 document.querySelector('.auth-content').append(error);
             } else {
-                let allLoggedOut = document.querySelectorAll('.logged-out');
-                let allLoggedIn = document.querySelectorAll('.logged-in');
+                // let allLoggedOut = document.querySelectorAll('.logged-out');
+                // let allLoggedIn = document.querySelectorAll('.logged-in');
                 document.querySelector('.auth').style.visibility = 'hidden'; //hide modal
                 localStorage.setItem('auth_key', response.token);
                 localStorage.setItem('username', response.username);
-
-              //toggles user access when logged-in
-                for (let item of allLoggedOut) {
-                item.style.display = "none";
-                }
-                for (let item of allLoggedIn) {
-                item.style.display = 'inline';
-                }
-
-                const refreshPosts = document.querySelectorAll('.post');
-                  let removeMe = document.querySelector('.comment-list');
-                    removeMe.remove();
-                //log-in event refreshes to all posts
-                  for(let posts of refreshPosts) {
-                    posts.style.display = 'inline';
-                  }
-
                 document.querySelector('.userid').innerHTML = response.username;
+
+                if (window.location.hash.length === 0) {
+                    refresh();
+                } else {
+                    fetchPostbyId(window.location.hash);
+                }
+              //toggles user access when logged-in
+                // for (let item of allLoggedOut) {
+                // item.style.display = "none";
+                // }
+                // for (let item of allLoggedIn) {
+                // item.style.display = 'inline';
+                // }
+
+                // const refreshPosts = document.querySelectorAll('.post');
+                //   let removeMe = document.querySelector('.comment-list');
+                //     removeMe.remove();
+                // //log-in event refreshes to all posts
+                //   for(let posts of refreshPosts) {
+                //     posts.style.display = 'inline';
+                //   }
+
             }
         })
         .catch(err => console.log(err));
