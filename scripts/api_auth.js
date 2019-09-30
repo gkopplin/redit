@@ -16,6 +16,10 @@ export const signup = (username, email, password) => {
     })
     .then(response => response.json())
     .then(response => {
+        // Clear existing errors
+        const error = document.querySelector('.auth-error');
+        error && error.remove();
+
         // Error handling
         if (response.httpStatus) {
             const error = document.createElement('p');
@@ -51,6 +55,10 @@ export const login = (email, password) => {
     })
         .then(response => response.json())
         .then(response => {
+            // Clear existing errors
+            const error = document.querySelector('.auth-error');
+            error && error.remove();
+            
             // Error handling
             if (response.httpStatus) {
                 const error = document.createElement('p');
