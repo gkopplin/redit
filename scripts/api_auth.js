@@ -58,7 +58,7 @@ export const login = (email, password) => {
             // Clear existing errors
             const error = document.querySelector('.auth-error');
             error && error.remove();
-            
+
             // Error handling
             if (response.httpStatus) {
                 const error = document.createElement('p');

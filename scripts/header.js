@@ -85,7 +85,7 @@ export default () => {
     };
     logout.onclick = logOut;
 
-    
+
     //resets hash when click on site logo
     logo.onclick = () => {
       window.location.hash = '';
