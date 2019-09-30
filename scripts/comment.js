@@ -7,7 +7,7 @@ export default (text, commentId, author, currentUser) => {
 
     // Add class
     comment.className = "comment";
-    delButton.classList.add('delete', 'owned');
+    delButton.classList.add('delete', 'owned', 'logged-in');
 
     // Add text
     comment.innerHTML = text;
@@ -18,7 +18,7 @@ export default (text, commentId, author, currentUser) => {
 
     // Append elements
     if (author === currentUser) {
-        
+
         comment.append(delButton);
     }
 
