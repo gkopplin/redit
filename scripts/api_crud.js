@@ -2,7 +2,7 @@ import createPostItem from './post.js';
 import createComment from './comment';
 
 export const createPost = (title, description) => {
-    fetch('http://thesi.generalassemb.ly:8080/post', {
+    fetch('http://localhost:8080/redit-api/post', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -31,7 +31,7 @@ export const createPost = (title, description) => {
 };
 
 export const deletePost = (postId) => {
-  fetch(`http://thesi.generalassemb.ly:8080/post/${postId}`, {
+  fetch(`http://localhost:8080/redit-api/post/${postId}`, {
       method: 'DELETE',
       headers: {
           'Content-Type': 'application/json',
@@ -46,7 +46,7 @@ export const deletePost = (postId) => {
 };
 
 export const fetchPosts = () => {
-  fetch('http://thesi.generalassemb.ly:8080/post/list', {
+  fetch('http://localhost:8080/redit-api/post/list', {
       method: 'GET',
       headers: {
           'Content-Type': 'application/json'
@@ -62,8 +62,10 @@ export const fetchPosts = () => {
       .catch(err => console.log(err));
 };
 //called in post.js
+
+//Add this
 export const fetchComments = (post, postId) => {
-  fetch(`http://thesi.generalassemb.ly:8080/post/${postId}/comment`, {
+  fetch(`http://localhost:8080/redit-api/post/${postId}/comment`, {
       method: 'GET',
       headers: {
           'Content-Type': 'application/json'
@@ -89,7 +91,7 @@ export const fetchComments = (post, postId) => {
 };
 //called in post.js
 export const postComment = (text, postId) => {
-  fetch(`http://thesi.generalassemb.ly:8080/comment/${postId}`, {
+  fetch(`http://localhost:8080/redit-api/post/${postId}/comment`, {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json',
@@ -108,8 +110,10 @@ export const postComment = (text, postId) => {
       .catch(err => console.log(err));
 };
 //used to implement hash
+
+//Edit this
 export const fetchPostbyId = (hash) => {
-    fetch('http://thesi.generalassemb.ly:8080/post/list', {
+    fetch('http://localhost:8080/redit-api/post/list', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
@@ -157,7 +161,7 @@ export const fetchPostbyId = (hash) => {
 };
 
 export const deleteComment = (commentId, comment) => {
-    fetch(`http://thesi.generalassemb.ly:8080/comment/${commentId}`, {
+    fetch(`http://localhost:8080/redit-api/comment/${commentId}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',

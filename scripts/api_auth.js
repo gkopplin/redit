@@ -3,7 +3,7 @@ import refresh from './refresh_util';
 import {fetchPostbyId} from './api_crud';
 
 export const signup = (username, email, password) => {
-    fetch('http://thesi.generalassemb.ly:8080/signup', {
+    fetch('http://localhost:8080/redit-api/user/signup', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -43,7 +43,7 @@ export const signup = (username, email, password) => {
 };
 
 export const login = (email, password) => {
-    fetch('http://thesi.generalassemb.ly:8080/login', {
+    fetch('http://localhost:8080/redit-api/user/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
