@@ -55,7 +55,7 @@ export const fetchPosts = () => {
       .then(response => response.json())
       .then(response => {
         for (let i = 0; i < 10; i++) {
-          const post = createPostItem(response[i].title, response[i].description, response[i].id, response[i].user.username);
+          const post = createPostItem(response[i].title, response[i].body, response[i].postId, response[i].author.username);
           document.querySelector('.homepage').append(post);
       }
       })
