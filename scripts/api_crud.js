@@ -1,7 +1,7 @@
 import createPostItem from './post.js';
 import createComment from './comment';
 
-export const createPost = (title, description) => {
+export const createPost = (title, body) => {
     fetch('http://localhost:8080/redit-api/post', {
         method: 'POST',
         headers: {
@@ -10,7 +10,7 @@ export const createPost = (title, description) => {
         },
         body: JSON.stringify({
             title,
-            description
+            body
         }),
     })
         .then(response => response.json())
@@ -22,7 +22,7 @@ export const createPost = (title, description) => {
                 error.innerHTML = response.httpStatus === "BAD_REQUEST" ? "Title may not be blank" : response.httpStatus;
                 document.querySelector('.post-content').append(error);
             } else {
-                const post = createPostItem(response.title, response.description, response.id, response.user.username);
+                const post = createPostItem(response.title, response.body, response.postId, response.author.username);
                 document.querySelector('.homepage').append(post);
                 document.querySelector('.create-post').style.visibility = 'hidden';
             }
