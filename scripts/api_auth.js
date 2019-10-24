@@ -14,7 +14,10 @@ export const signup = (username, email, password) => {
             password
         }),
     })
-    .then(response => response.json())
+    .then(response => {
+        // console.log(response);
+        return response.json();
+    })
     .then(response => {
         // Clear existing errors
         const error = document.querySelector('.auth-error');

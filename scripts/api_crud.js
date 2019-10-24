@@ -54,13 +54,10 @@ export const fetchPosts = () => {
   })
       .then(response => response.json())
       .then(response => {
-        // debugger;
-        // for (let i = 0; i < 10; i++) {
-        
         response.forEach(element => {
             const post = createPostItem(element.title, element.body, element.postId, element.author.username);
             document.querySelector('.homepage').append(post);
-        })
+        });
     })
     .catch(err => console.log(err));
 };
@@ -125,8 +122,8 @@ export const fetchPostbyId = (hash) => {
         .then(response => response.json())
         .then(response => {
             const postId = parseInt(hash.split('/')[1]);
-            const postResponse = response.filter(el => el.id === postId)[0];
-            const post = createPostItem(postResponse.title, postResponse.description, postResponse.id, postResponse.user.username);
+            const postResponse = response.filter(el => el.postId === postId)[0];
+            const post = createPostItem(postResponse.title, postResponse.body, postResponse.postId, postResponse.author.username);
             post.onmouseenter = () => {
                 post.style.width = '500px';
                 post.style.border = 'none';
