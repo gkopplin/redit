@@ -104,7 +104,7 @@ export const postComment = (text, postId) => {
       .then(response => response.json())
       .then(response => {
           const commentList = document.querySelector('.comment-list');
-          const commented = createComment(response.text, response.id, response.user.username, localStorage.getItem('username'));
+          const commented = createComment(response.text, response.commentId, response.author.username, localStorage.getItem('username'));
           commentList.append(commented);
       })
       .catch(err => console.log(err));
