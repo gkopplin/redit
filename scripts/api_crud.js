@@ -54,12 +54,15 @@ export const fetchPosts = () => {
   })
       .then(response => response.json())
       .then(response => {
-        for (let i = 0; i < 10; i++) {
-          const post = createPostItem(response[i].title, response[i].body, response[i].postId, response[i].author.username);
-          document.querySelector('.homepage').append(post);
-      }
-      })
-      .catch(err => console.log(err));
+        // debugger;
+        // for (let i = 0; i < 10; i++) {
+        
+        response.forEach(element => {
+            const post = createPostItem(element.title, element.body, element.postId, element.author.username);
+            document.querySelector('.homepage').append(post);
+        })
+    })
+    .catch(err => console.log(err));
 };
 //called in post.js
 
@@ -80,7 +83,7 @@ export const fetchComments = (post, postId) => {
        }
 
         for (let i = 0; i < response.length; i++) {
-          const comment = createComment(response[i].text, response[i].id, response[i].user.username, localStorage.getItem('username'));
+          const comment = createComment(response[i].text, response[i].commentId, response[i].author.username, localStorage.getItem('username'));
           commentList.append(comment);
         }
 
